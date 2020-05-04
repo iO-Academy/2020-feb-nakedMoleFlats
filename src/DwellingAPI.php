@@ -18,21 +18,21 @@ Class DwellingAPI
         curl_close($this->apiConnection);
     }
 
-    public function loadDwellings(): Object 
+    public function loadDwellings() : Array
     {
         curl_setopt($this->apiConnection, CURLOPT_URL, $this->apiUrl . 'properties.json');
         $output = curl_exec($this->apiConnection);
         return json_decode($output);
     }
 
-    public function loadTypes(): Object 
+    public function loadTypes() : Array
     {
         curl_setopt($this->apiConnection, CURLOPT_URL, $this->apiUrl . 'types.json');
         $output = curl_exec($this->apiConnection);
         return json_decode($output);
     }
 
-    public function loadStatuses(): Object 
+    public function loadStatuses() : Array
     {
         curl_setopt($this->apiConnection, CURLOPT_URL, $this->apiUrl . 'statuses.json');
         $output = curl_exec($this->apiConnection);
@@ -40,4 +40,3 @@ Class DwellingAPI
     }
     
 }
-

@@ -4,6 +4,48 @@
   and (-webkit-min-device-pixel-ratio: 3) { 
 
 
-    
+    body {
+            background-color: $backgroundColor;
+            font-family: $mainFont;
+        header {
 
+            background-color: $brandColor;
+            width: 100%;
+
+            .headerContent {
+            display: flex;
+            text-align: center;
+            height: auto;
+            color: $brandFontColor;
+            width: 80%;
+            margin: auto;
+
+
+
+                img {
+                    
+                }
+
+                .headerText {
+
+                    display: flex;
+                    flex-direction: column;
+                    
+                    h1 {
+
+                    }
+
+                    h2 {
+
+                    }
+
+                }
+
+                .headerBaseBar {
+                background-color: $accentColor;
+
+                }
+            }
+        }
+    }
 }

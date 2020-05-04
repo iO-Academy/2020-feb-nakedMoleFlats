@@ -24,17 +24,30 @@
 <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat" type="text/css">
-  <link rel="stylesheet" href="styles.css" type="text/css">
+  <link rel="stylesheet" href="dist/css/styles.css" type="text/css">
+  <script src="https://kit.fontawesome.com/c90803ff49.js" crossorigin="anonymous"></script>
   </head>
   
   <body>
     <header>
-        <img src="" alt="">
-        <h1>NAKED MOLE FLATS</h1>
-        <h2>PROPERTIES OF DISTINCTION<h2>
+        <div class="headerContent">
+            <img src="src/images/nakedMoleFlatsLogo.png" alt="Naked Mole Flats Logo">
+            <div class="headerText">
+                <h1>NAKED MOLE FLATS</h1>
+                <h2>PROPERTIES OF DISTINCTION<h2>
+            </div>
+        </div>
         <div class="headerBaseBar"></div>
     </header>
-    <div class="dwellingContainer"></div>
-  
+    <!-- <div class="dwellingContainer">
+        <div class="dwellingMainImage">
+            <div class="dwellingStatus"></div>
+        </div>
+        <div class="price"><
+    </div> -->
+    <footer>
+      <h3>©Copyright Naked Mole Rats 2020</h3>
+      <h4><i class="fas fa-angle-double-up"></i></h4>
+    </footer>
   </body>
 </html>

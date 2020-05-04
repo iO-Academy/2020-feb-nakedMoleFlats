@@ -1,0 +1,27 @@
+{
+  "name": "2020-feb-nakedmoleflats",
+  "version": "1.0.0",
+  "description": "project template repo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mayden-Academy/2020-feb-nakedMoleFlats.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mayden-Academy/2020-feb-nakedMoleFlats/issues"
+  },
+  "homepage": "https://github.com/Mayden-Academy/2020-feb-nakedMoleFlats#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5"
+  }
+}

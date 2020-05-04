@@ -6,13 +6,13 @@ class DwellingImporter{
     private $db;
     private $api;
 
-    public function __construct($db, $api)
+    public function __construct(\PDO $db,Object $api)
     {
         $this->db = $db;
         $this->api = $api;
     }
 
-    private function deleteTable()
+    private function deleteTables()
     {
         $query = $this->db->prepare("DROP TABLE IF EXISTS `dwellings`;");
         $query->execute();
@@ -31,6 +31,23 @@ class DwellingImporter{
             `statusId` int(11) NOT NULL,
             PRIMARY KEY (`dwellingId`)
           ) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
+        $query->execute();
+        $query = $this->db->prepare("DROP TABLE IF EXISTS `statuses`;");
+        $query->execute();
+        $query = $this->db->prepare("CREATE TABLE `statuses` (
+            `statusId` int(11) unsigned NOT NULL AUTO_INCREMENT,
+            `status` varchar(11) NOT NULL DEFAULT '',
+            PRIMARY KEY (`statusId`)
+          ) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
+        $query->execute();
+        $query = $this->db->prepare("DROP TABLE IF EXISTS `types`;");
+        $query->execute();
+        $query = $this->db->prepare("CREATE TABLE `types` (
+            `typeId` int(11) unsigned NOT NULL AUTO_INCREMENT,
+            `type` varchar(11) NOT NULL DEFAULT '',
+            PRIMARY KEY (`typeId`)
+          ) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
+        $query->execute();
     }
 
     private function insertDwellings()
@@ -41,5 +58,28 @@ class DwellingImporter{
            $query = $this->db->prepare('INSERT INTO dwellings VALUES (:agentRef, :address1, :address2, :town, :postcode, :description, :bedrooms, :price, :image, :typeId, :statusId)');
            $query->execute($dwelling);
        }
+    }
+
+    private function insertTypes(){
+        $types = $this->api->loadTypes();
+        foreach ($types as $type) {
+            $query = $this->db->prepare('INSERT INTO types VALUES (:type)');
+            $query->execute($type);
+        }
+    }
+
+    private function insertStatuses(){
+        $statuses = $this->api->loadTypes();
+        foreach ($statuses as $status) {
+            $query = $this->db->prepare('INSERT INTO statuses VALUES (:status)');
+            $query->execute($status);
+        }
+    }
+
+    public function refreshDB(){
+        $this->deleteTables();
+        $this->insertDwellings();
+        $this->insertTypes();
+        $this->insertStatuses();        
     }
 }

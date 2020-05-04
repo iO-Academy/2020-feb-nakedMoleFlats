@@ -25,5 +25,18 @@ Class DwellingAPI
         return json_decode($output);
     }
 
+    public function loadTypes(): Object 
+    {
+        curl_setopt($this->apiConnection, CURLOPT_URL, $this->apiUrl . 'types.json');
+        $output = curl_exec($this->apiConnection);
+        return json_decode($output);
+    }
+
+    public function loadStatuses(): Object 
+    {
+        curl_setopt($this->apiConnection, CURLOPT_URL, $this->apiUrl . 'statuses.json');
+        $output = curl_exec($this->apiConnection);
+        return json_decode($output);
+    }
     
 }

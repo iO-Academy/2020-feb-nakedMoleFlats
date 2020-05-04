@@ -40,14 +40,22 @@
         <div class="headerBaseBar"></div>
     </header>
     <!-- <div class="dwellingContainer">
-        <div class="dwellingMainImage">
+        <div class="dwellingMainImage" src="src/images/nakedMoleFlatsLogo.png">
             <div class="dwellingStatus"></div>
         </div>
-        <div class="price"><
+        <div class="dwellingInfo">
+            <div class="price"><div>
+            <div class="pageBreak'></div>
+            <div class="dwellingAddress">Address</div>
+            <div class="dwellingBedrooms><i class="fas fa-bed"></i></div>
+            <button class="viewPropertyButton"><a>View Property</a></button>
+        </div>
     </div> -->
     <footer>
-      <h3>©Copyright Naked Mole Rats 2020</h3>
-      <h4><i class="fas fa-angle-double-up"></i></h4>
+        <div class="footerText">©Copyright Naked Mole Rats 2020</div>
+        <div class="toTop">
+            <i class="fas fa-angle-double-up"></i>
+        </div>
     </footer>
   </body>
 </html>

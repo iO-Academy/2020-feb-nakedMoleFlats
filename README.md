@@ -1,2 +1,2 @@
-# year-cohort-projectName
+# 2020-feb-nakedMoleFlats
 project template repo

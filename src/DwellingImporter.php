@@ -12,7 +12,7 @@ class DwellingImporter{
      * @param \PDO $db PDO connection to the db
      * @param DwellingAPI $api instance of dwelling api
      */
-    public function __construct(\PDO $db,DwellingAPI $api)
+    public function __construct(\PDO $db, DwellingAPI $api)
     {
         $this->db = $db;
         $this->api = $api;
@@ -36,8 +36,10 @@ class DwellingImporter{
     {
         $dwellings = $this->api->loadDwellings();
 
-       foreach ($dwellings as $dwelling) {
-           $query = $this->db->prepare('INSERT INTO `dwellings` (`agentRef`, `address1`, `address2`, `town`, `postcode`, `description`, `bedrooms`, `price`, `image`, `typeId`, `statusId`) VALUES (:agentRef, :address1, :address2, :town, :postcode, :description, :bedrooms, :price, :image, :typeId, :statusId)');
+        foreach ($dwellings as $dwelling) {
+           $query = $this->db->prepare('INSERT INTO `dwellings` (`agentRef`, `address1`, `address2`, `town`, `postcode`, `description`, `bedrooms`, `price`, `image`, `typeId`, `statusId`) 
+                                        VALUES (:agentRef, :address1, :address2, :town, :postcode, :description, :bedrooms, :price, :image, :typeId, :statusId)'
+                                        );
            $query->bindParam(':agentRef', $dwelling->AGENT_REF);
            $query->bindParam(':address1', $dwelling->ADDRESS_1);
            $query->bindParam(':address2', $dwelling->ADDRESS_2);
@@ -50,7 +52,7 @@ class DwellingImporter{
            $query->bindParam(':typeId', $dwelling->TYPE);
            $query->bindParam(':statusId', $dwelling->STATUS);
            $query->execute();
-       }
+        }
     }
     /**
      * inserts types from API
@@ -58,7 +60,7 @@ class DwellingImporter{
     private function insertTypes(){
         $types = $this->api->loadTypes();
         foreach ($types as $type) {
-            $query = $this->db->prepare('INSERT INTO `types` (type) VALUES (:type)');
+            $query = $this->db->prepare('INSERT INTO `types` (`type`) VALUES (:type)');
             $query->bindParam(':type', $type->TYPE_NAME);
             $query->execute();
         }
@@ -69,7 +71,7 @@ class DwellingImporter{
     private function insertStatuses(){
         $statuses = $this->api->loadStatuses();
         foreach ($statuses as $status) {
-            $query = $this->db->prepare('INSERT INTO `statuses` (status) VALUES (:status)');
+            $query = $this->db->prepare('INSERT INTO `statuses` (`status`) VALUES (:status)');
             $query->bindParam(':status', $status->STATUS_NAME);
             $query->execute();
         }
@@ -84,11 +86,6 @@ class DwellingImporter{
             $this->insertDwellings();
             $this->insertTypes();
             $this->insertStatuses();  
-            echo "The API is up and the database has been refreshed.";
-        }
-        else
-        {
-            echo "The API is down and the database has not been refreshed.";
         }
     }
 }

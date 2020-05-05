@@ -1,5 +1,4 @@
 <?php
-
 require_once 'vendor/autoload.php';
 
 use NMF\DwellingAPI;
@@ -12,3 +11,4 @@ $importer = new DwellingImporter($db, $api);
 $hydrator = new DwellingHydrator($db);
 
 $importer->refreshDB();
+

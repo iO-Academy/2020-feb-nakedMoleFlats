@@ -10,7 +10,7 @@ class DwellingImporter{
      * class to import the data from the API into the database
      *
      * @param \PDO $db PDO connection to the db
-     * @param Object $api instance of dwelling api
+     * @param DwellingAPI $api instance of dwelling api
      */
     public function __construct(\PDO $db,DwellingAPI $api)
     {
@@ -22,11 +22,11 @@ class DwellingImporter{
      */
     private function deleteTables()
     {
-        $query = $this->db->prepare("TRUNCATE TABLE dwellings;");
+        $query = $this->db->prepare("TRUNCATE TABLE `dwellings`;");
         $query->execute();
-        $query = $this->db->prepare("TRUNCATE TABLE statuses;");
+        $query = $this->db->prepare("TRUNCATE TABLE `statuses`;");
         $query->execute();
-        $query = $this->db->prepare("TRUNCATE TABLE types;");
+        $query = $this->db->prepare("TRUNCATE TABLE `types`;");
         $query->execute();
     }
     /**
@@ -58,7 +58,7 @@ class DwellingImporter{
     private function insertTypes(){
         $types = $this->api->loadTypes();
         foreach ($types as $type) {
-            $query = $this->db->prepare('INSERT INTO types (type) VALUES (:type)');
+            $query = $this->db->prepare('INSERT INTO `types` (type) VALUES (:type)');
             $query->bindParam(':type', $type->TYPE_NAME);
             $query->execute();
         }
@@ -69,7 +69,7 @@ class DwellingImporter{
     private function insertStatuses(){
         $statuses = $this->api->loadStatuses();
         foreach ($statuses as $status) {
-            $query = $this->db->prepare('INSERT INTO statuses (status) VALUES (:status)');
+            $query = $this->db->prepare('INSERT INTO `statuses` (status) VALUES (:status)');
             $query->bindParam(':status', $status->STATUS_NAME);
             $query->execute();
         }

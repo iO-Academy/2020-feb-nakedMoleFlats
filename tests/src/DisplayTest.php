@@ -32,7 +32,7 @@ class FunctionTest extends TestCase {
         ->willReturn('This is a house');
         $fakeDwelling
         ->method('getBedrooms')
-        ->willReturn(4);
+        ->willReturn(5);
         $fakeDwelling
         ->method('getPrice')
         ->willReturn(3000000);

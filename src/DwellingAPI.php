@@ -3,7 +3,6 @@
 Class DwellingAPI 
 {
     private $apiUrl;
-
     private $apiConnection;
 
     public function __construct(string $apiUrl)
@@ -38,5 +37,4 @@ Class DwellingAPI
         $output = curl_exec($this->apiConnection);
         return json_decode($output);
     }
-    
 }

@@ -1,3 +1,7 @@
+<?php
+    require_once('vendor/autoload.php')
+?>
+
 <!DOCTYPE html>
 <html lang="en-GB">
   <head>
@@ -37,81 +41,10 @@
         <div class="headerBaseBar"></div>
     </header>
     <section class="allDwellingsContainer">
-        <div class="dwellingContainer">
-            <div class="dwellingImageContainer">
-                    <img class="dwellingMainImage" src="src/images/testpic.jpeg" alt="property image">
-                    <div class="imageStatusText">SOLD</div>     
-            </div>
-            <div class="dwellingInfo">
-                <div class="price">£12345</div>
-                <hr>
-                <div class="dwellingAddress info">Address, 1 Address St, Address Town</div>
-                <div class="dwellingStatus info">Property for Sale</div>
-                <!-- class name is for font awesome icon -->
-                <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 1 bedroom</div>
-                <!-- <button class="viewPropertyButton"><a>View Property</a></button> -->
-            </div>
-        </div>
-        <div class="dwellingContainer">
-            <div class="dwellingImageContainer">
-                    <img class="dwellingMainImage" src="src/images/testpic.jpeg" alt="property image">
-                    <div class="imageStatusText">SOLD</div>    
-            </div>
-            <div class="dwellingInfo">
-                <div class="price">£12345</div>
-                <hr>
-                <div class="dwellingAddress info">Address, 1 Address St, Address Town</div>
-                <div class="dwellingStatus info">Property for Sale</div>
-                <!-- class name is for font awesome icon -->
-                <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 1 bedroom</div>
-                <!-- <button class="viewPropertyButton"><a>View Property</a></button> -->
-            </div>
-        </div>
-        <div class="dwellingContainer">
-            <div class="dwellingImageContainer">
-                    <img class="dwellingMainImage" src="src/images/testpic.jpeg" alt="property image">
-                    <div class="imageStatusText">SOLD</div> 
-            </div>
-            <div class="dwellingInfo">
-                <div class="price">£12345</div>
-                <hr>
-                <div class="dwellingAddress info">Address, 1 Address St, Address Town</div>
-                <div class="dwellingStatus info">Property for Sale</div>
-                <!-- class name is for font awesome icon -->
-                <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 1 bedroom</div>
-                <!-- <button class="viewPropertyButton"><a>View Property</a></button> -->
-            </div>
-        </div>
-        <div class="dwellingContainer">
-            <div class="dwellingImageContainer">
-                    <img class="dwellingMainImage" src="src/images/testpic.jpeg" alt="property image">
-                    <div class="imageStatusText">SOLD</div>
-            </div>
-            <div class="dwellingInfo">
-                <div class="price">£12345</div>
-                <hr>
-                <div class="dwellingAddress info">Address, 1 Address St, Address Town</div>
-                <div class="dwellingStatus info">Property for Sale</div>
-                <!-- class name is for font awesome icon -->
-                <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 1 bedroom</div>
-                <!-- <button class="viewPropertyButton"><a>View Property</a></button> -->
-            </div>
-        </div>
-        <div class="dwellingContainer">
-            <div class="dwellingImageContainer">
-                    <img class="dwellingMainImage" src="src/images/testpic.jpeg" alt="property image">
-                    <div class="imageStatusText">SOLD</div>  
-            </div>
-            <div class="dwellingInfo">
-                <div class="price">£12345</div>
-                <hr>
-                <div class="dwellingAddress info">Address, 1 Address St, Address Town</div>
-                <div class="dwellingStatus info">Property for Sale</div>
-                <!-- class name is for font awesome icon -->
-                <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 1 bedroom</div>
-                <!-- <button class="viewPropertyButton"><a>View Property</a></button> -->
-            </div>
-        </div>
+        <?php
+            $hydrator = new DwellingHydrator(new PDO('mysql:host=db; dbname=NMF', 'root', 'password'));
+            $hydrator->loadAllDwellings();
+        ?>
     </section>
     <footer>
         <div class="footerText">©Copyright Naked Mole Rats 2020</div>

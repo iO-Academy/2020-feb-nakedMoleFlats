@@ -68,6 +68,43 @@
                 }
             }
         }
+
+        section {
+
+            min-height: 88vh;
+
+            .dwellingContainer {
+
+                width: 95%;
+                height: 90%;
+                background-color: #ffffff;
+                margin: auto;
+                margin-top: 2vh;
+                
+                .dwellingMainImage {
+
+                    width: 100%;
+                    overflow: hidden;
+                    position: relative;
+
+                    &:after{
+                        content: "SOLD";
+                        background-color: #ff0000;
+                        color: #ffffff;
+                        font-size: 0.6rem;
+                        font-weight: lighter;
+                        position: absolute;
+                        z-index: 10;
+                        padding: 10px;
+                    }
+                
+                }
+            
+                
+            }
+        }
+
+
         footer{
             background-color: $brandColor;
             width: 100%;
@@ -77,13 +114,14 @@
             display: flex;
             flex-flow: row wrap;
             justify-content: space-between;
+            align-items: center;
             .footerText{
-                margin-left: 2%;
+                margin-left: 5%;
                 font-size: 10px;
                 width: 60%;
             }
             .toTop{
-                margin: 20% 2% auto auto;
+                margin-right:5%;
                 font-size: 24px;
                 width: auto;
                 max-height: 100%;

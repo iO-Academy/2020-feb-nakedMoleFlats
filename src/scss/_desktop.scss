@@ -1,98 +1,44 @@
 @media only screen 
-  and (min-device-width: 1024px)
-
-
-
+  and (min-width: 1024px)
     {
-
-
     body {
         box-sizing: border-box;
-
         header {
             height: auto;
-
             .headerContent {
                 display: flex;
                 width: 35%;
                 justify-content: space-between;
                 padding: 2% 0;
-            
-
                 img {
                     width: auto;
                     height: 80%;
                     overflow: hidden;
                 }
-
                 .headerText {
-
                     margin: 0;
-                    
                     h1 {
                         font-size: 2vw;
-                      
                     }
-
                     h2 {
-
                        font-size: 1vw;
                     }
                 }
-
-                .headerBaseBar {
-                        
-                }
             }
         }
-
-       
-
         .allDwellingsContainer {
             display: grid;
             max-width: 1600px;
             width: 90%;
             margin: 5vh auto;
             grid-template-columns: auto auto auto;
-           
-
             .dwellingContainer {
                 -webkit-box-sizing: border-box;
                 justify-self: center;
                 margin: 5% 0.25%;
-
-                .dwellingImageContainer {
-
-                  
-                    .imageStatusText {
-                        
-                    }
-
-                    .dwellingMainImage {
-
-                      
-                    }
-
-                }
-
-                .dwellingInfo {
-                   
-                    .info {
-                      
-                    }
-                    
-                    hr {
-                        
-                       
-                    }
-                }
-                    
             }
         }
-
-
         footer{
-            
             .footerText{
                 margin-left: 5%;
                 font-size: 2vh;
@@ -104,7 +50,6 @@
                 width: auto;
                 max-height: 100%;
                 text-decoration: none;
-                
             }
         }
     }

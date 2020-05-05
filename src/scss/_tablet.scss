@@ -1,93 +1,17 @@
 @media only screen 
-and (min-device-width : 768px) 
-and (max-device-width : 1023px)
-
-
-    {
-
-
+and (min-width : 768px) 
+and (max-width : 1023px) {
     body {
-            
         header {
-            
-
             .headerContent {
-
                 width: 60%;
                 display: flex;
                 justify-content: space-between;
-            
-             
-                img {
-                   
-                }
-
                 .headerText {
-
-                   
                     h1 {
-
-                        font-size: 3vh;
-                        
-                      
-                    }
-
-                    h2 {
-
-                     
+                        font-size: 3vh; 
                     }
                 }
-
-                .headerBaseBar {
-                        
-                }
-            }
-        }
-
-        .allDwellingsContainer {
-
-            
-
-            .dwellingContainer {
-               
-                .dwellingImageContainer {
-
-                  
-                    .imageStatusText {
-                        
-                    }
-
-                    .dwellingMainImage {
-
-                      
-                    }
-
-                }
-
-                .dwellingInfo {
-                   
-                    .info {
-                      
-                    }
-                    
-                    hr {
-                        
-                       
-                    }
-                }
-                    
-            }
-        }
-
-
-        footer{
-            
-            .footerText{
-              
-            }
-            .toTop{
-                
-                
             }
         }
     }

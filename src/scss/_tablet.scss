@@ -1,0 +1,18 @@
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1023px) {
+    body {
+        header {
+            .headerContent {
+                width: 60%;
+                display: flex;
+                justify-content: space-between;
+                .headerText {
+                    h1 {
+                        font-size: 3vh; 
+                    }
+                }
+            }
+        }
+    }
+}

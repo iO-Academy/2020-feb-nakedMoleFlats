@@ -28,6 +28,18 @@ class DwellingAPI
         curl_close($this->apiConnection);
     }
     /**
+     * Checks whether the API is currently available
+     */
+    public function checkIsUp(): boolean
+    {
+        $retcode = curl_getinfo($apiConnection, CURLINFO_HTTP_CODE);
+
+        if ($retcode < 300) {
+            return false;
+        }
+        return true;
+    }
+    /**
      * Load the dwellings in from the API
      * 
      * @return Array an indexed array of objects. Each object represents a dwelling

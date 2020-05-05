@@ -27,18 +27,17 @@ class DisplayDwellings
             }
             $result .= "<div class=\"dwellingContainer\">"    
             . "<div class=\"dwellingImageContainer\">"
-                    . "<img class=\"dwellingMainImage\" src=\"../../src/images/testpic.jpeg\">"
+                    . "<img class=\"dwellingMainImage\" src=\"$dwelling->getImage()\">"
                     . $statusBox
             . "</div>"
        
             . "<div class=\"dwellingInfo\">"
-                . "<div class=\"price\">£3000000</div>"
+                . "<div class=\"price\">$dwelling->getPrice()</div>"
                 . "<hr>"
-                . "<div class=\"dwellingAddress info\">Mayden Academy, 1 Widcombe Crescent, Bath</div>"
-                . "<div class=\"dwellingPostcode\" info>BA2 6AH</div>"
-                . "<div class=\"dwellingStatus info\">SOLD</div>"
-                . "<div class=\"dwellingBedrooms info\"><i class=\"fas fa-bed\"></i>5 bedrooms</div>"
-                . "<!-- <button class=\"viewPropertyButton\"><a>View Property</a></button> -->"
+                . "<div class=\"dwellingAddress info\">$dwelling->getAddress1(), $dwelling->getAddress2()</div>"
+                . "<div class=\"dwellingPostcode\" info>$dwelling->getPostcode()</div>"
+                . "<div class=\"dwellingStatus info\">$dwelling->getStatus()</div>"
+                . "<div class=\"dwellingBedrooms info\"><i class=\"fas fa-bed\"></i>$dwelling->getBedrooms()</div>" 
             . "</div>"
         . "</div>";
         }

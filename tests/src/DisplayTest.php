@@ -12,36 +12,36 @@ class FunctionTest extends TestCase {
     public function testSuccessDisplayDwellings()
     {
         $fakeDwelling = $this->createMock(Dwelling::class);
-        // $fakeDwelling->expects($this->once())
-        // ->method('getAgentRef')
-        // ->willReturn('Alex M');
-        // $fakeDwelling->expects($this->once())
-        // ->method('getAddress1')
-        // ->willReturn('Mayden Academy');
-        // $fakeDwelling->expects($this->once())
-        // ->method('getAddress2')
-        // ->willReturn('1 Widcombe Crescent');
-        // $fakeDwelling->expects($this->once())
-        // ->method('getTown')
-        // ->willReturn('Bath');
-        // $fakeDwelling->expects($this->once())
-        // ->method('getPostcode')
-        // ->willReturn('BA2 6AH');
-        // $fakeDwelling->expects($this->once())
-        // ->method('getDescription')
-        // ->willReturn('This is a house');
-        // $fakeDwelling->expects($this->once())
-        // ->method('getBedrooms')
-        // ->willReturn(5);
-        // $fakeDwelling->expects($this->once())
-        // ->method('getPrice')
-        // ->willReturn(3000000);
-        // $fakeDwelling->expects($this->once())
-        // ->method('getImage')
-        // ->willReturn('../../src/images/testpic.jpeg');
-        // $fakeDwelling->expects($this->once())
-        // ->method('getType')
-        // ->willReturn('Sale');
+        $fakeDwelling
+        ->method('getAgentRef')
+        ->willReturn('Alex M');
+        $fakeDwelling-> expects($this->once())
+        ->method('getAddress1')
+        ->willReturn('Mayden Academy');
+        $fakeDwelling
+        ->method('getAddress2')
+        ->willReturn('1 Widcombe Crescent');
+        $fakeDwelling
+        ->method('getTown')
+        ->willReturn('Bath');
+        $fakeDwelling
+        ->method('getPostcode')
+        ->willReturn('BA2 6AH');
+        $fakeDwelling
+        ->method('getDescription')
+        ->willReturn('This is a house');
+        $fakeDwelling
+        ->method('getBedrooms')
+        ->willReturn(4);
+        $fakeDwelling
+        ->method('getPrice')
+        ->willReturn(3000000);
+        $fakeDwelling
+        ->method('getImage')
+        ->willReturn('../../src/images/testpic.jpeg');
+        $fakeDwelling
+        ->method('getType')
+        ->willReturn('Sale');
         $fakeDwelling
         ->method('getStatus')
         ->willReturn('Sold');
@@ -60,9 +60,8 @@ class FunctionTest extends TestCase {
                  . '<hr>'
                  . '<div class="dwellingAddress info">Mayden Academy, 1 Widcombe Crescent, Bath</div>'
                  . '<div class="dwellingPostcode" info>BA2 6AH</div>'
-                 . '<div class="dwellingStatus info">SOLD</div>'
+                 . '<div class="dwellingStatus info">Sold</div>'
                  . '<div class="dwellingBedrooms info"><i class="fas fa-bed"></i>5 bedrooms</div>'
-                 . '<!-- <button class="viewPropertyButton"><a>View Property</a></button> -->'
              . '</div>'
          . '</div>';
         

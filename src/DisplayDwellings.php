@@ -17,7 +17,6 @@ class DisplayDwellings
         
         $result = '';
 
-
         foreach($dwellingsToDisplay as $dwelling) {
             if($dwelling->getStatus()==='Sold' || $dwelling->getStatus()==='Let Agreed') {
                 $statusCapitalized = strtoupper($dwelling->getStatus());
@@ -29,9 +28,7 @@ class DisplayDwellings
             . '<div class="dwellingImageContainer">'
                     . '<img class="dwellingMainImage" src="' . $dwelling->getImage() . '">'
                     . $statusBox
-                   
             . '</div>'
-       
             . '<div class="dwellingInfo">'
                 . '<div class="price">£' . $dwelling->getPrice() . '</div>'
                 . '<hr>'

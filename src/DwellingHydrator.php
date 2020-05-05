@@ -11,13 +11,14 @@ class DwellingHydrator{
     public function __construct(\PDO $db)
     {
         $this->db = $db;
-        $db->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
+        $db->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_OBJ);
     }
     /**
-     * takes database connection and joins data from tables into single array
+     * takes database connection and joins data from tables into single object
      */
     public function loadAllDwellings(){
-        $query = $this->db->prepare('SELECT dwellings.dwellingId dwellings.agentRef dwellings.address1 dwellings.address2 dwellings.town dwellings.postcode dwellings.description dwellings.bedrooms dwellings.price dwellings.image FROM `dwellings` INNER JOIN `types` ON `dwellings`.`id` = `types`.`type` INNER JOIN `statuses` ON `dwellings`.`statusId` = `statuses`.`statusId`');
+        $query = $this->db->prepare('SELECT `dwellings`.`dwellingId`, `dwellings`.`agentRef`, `dwellings`.`address1`, `dwellings`.`address2`, `dwellings`.`town`, `dwellings`.`postcode`, `dwellings`.`description`, `dwellings`.`bedrooms`, `dwellings`.`price`, `dwellings`.`image`, `types`.`type`, `statuses`.`status` FROM ((`dwellings` INNER JOIN `types` ON `dwellings`.`typeId` = `types`.`typeId`) INNER JOIN `statuses` ON `dwellings`.`statusId` = `statuses`.`statusId`);');
+        //$query = $this->db->prepare('select * from dwellings');
         $query->execute();
         return $query->fetchAll();
     }

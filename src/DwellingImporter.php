@@ -12,7 +12,7 @@ class DwellingImporter{
      * @param \PDO $db PDO connection to the db
      * @param Object $api instance of dwelling api
      */
-    public function __construct(\PDO $db,Object $api)
+    public function __construct(\PDO $db,DwellingAPI $api)
     {
         $this->db = $db;
         $this->api = $api;
@@ -78,9 +78,17 @@ class DwellingImporter{
      * deletes the data in the tables and inserts the data from the API
      */
     public function refreshDB(){
-        $this->deleteTables();
-        $this->insertDwellings();
-        $this->insertTypes();
-        $this->insertStatuses();        
+        if ($this->api->checkIsUp())
+        {
+            $this->deleteTables();
+            $this->insertDwellings();
+            $this->insertTypes();
+            $this->insertStatuses();  
+            echo "The API is up and the database has been refreshed.";
+        }
+        else
+        {
+            echo "The API is down and the database has not been refreshed.";
+        }
     }
 }

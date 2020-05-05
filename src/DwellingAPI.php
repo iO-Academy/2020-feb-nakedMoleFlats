@@ -60,4 +60,12 @@ class DwellingAPI
         $output = curl_exec($this->apiConnection);
         return json_decode($output);
     }
+
+    /**
+     * Get the value of apiUrl
+     */ 
+    public function getApiUrl()
+    {
+        return $this->apiUrl;
+    }
 }

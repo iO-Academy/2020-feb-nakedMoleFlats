@@ -12,37 +12,37 @@ class FunctionTest extends TestCase {
     public function testSuccessDisplayDwellings()
     {
         $fakeDwelling = $this->createMock(Dwelling::class);
-        $fakeDwelling->expects($this->once())
-        ->method('getAgentRef')
-        ->willReturn('Alex M');
-        $fakeDwelling->expects($this->once())
-        ->method('getAddress1')
-        ->willReturn('Mayden Academy');
-        $fakeDwelling->expects($this->once())
-        ->method('getAddress2')
-        ->willReturn('1 Widcombe Crescent');
-        $fakeDwelling->expects($this->once())
-        ->method('getTown')
-        ->willReturn('Bath');
-        $fakeDwelling->expects($this->once())
-        ->method('getPostcode')
-        ->willReturn('BA2 6AH');
-        $fakeDwelling->expects($this->once())
-        ->method('getDescription')
-        ->willReturn('This is a house');
-        $fakeDwelling->expects($this->once())
-        ->method('getBedrooms')
-        ->willReturn(5);
-        $fakeDwelling->expects($this->once())
-        ->method('getPrice')
-        ->willReturn(3000000);
-        $fakeDwelling->expects($this->once())
-        ->method('getImage')
-        ->willReturn('../../src/images/testpic.jpeg');
-        $fakeDwelling->expects($this->once())
-        ->method('getType')
-        ->willReturn('Sale');
-        $fakeDwelling->expects($this->once())
+        // $fakeDwelling->expects($this->once())
+        // ->method('getAgentRef')
+        // ->willReturn('Alex M');
+        // $fakeDwelling->expects($this->once())
+        // ->method('getAddress1')
+        // ->willReturn('Mayden Academy');
+        // $fakeDwelling->expects($this->once())
+        // ->method('getAddress2')
+        // ->willReturn('1 Widcombe Crescent');
+        // $fakeDwelling->expects($this->once())
+        // ->method('getTown')
+        // ->willReturn('Bath');
+        // $fakeDwelling->expects($this->once())
+        // ->method('getPostcode')
+        // ->willReturn('BA2 6AH');
+        // $fakeDwelling->expects($this->once())
+        // ->method('getDescription')
+        // ->willReturn('This is a house');
+        // $fakeDwelling->expects($this->once())
+        // ->method('getBedrooms')
+        // ->willReturn(5);
+        // $fakeDwelling->expects($this->once())
+        // ->method('getPrice')
+        // ->willReturn(3000000);
+        // $fakeDwelling->expects($this->once())
+        // ->method('getImage')
+        // ->willReturn('../../src/images/testpic.jpeg');
+        // $fakeDwelling->expects($this->once())
+        // ->method('getType')
+        // ->willReturn('Sale');
+        $fakeDwelling
         ->method('getStatus')
         ->willReturn('Sold');
 

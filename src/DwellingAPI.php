@@ -30,14 +30,14 @@ class DwellingAPI
     /**
      * Checks whether the API is currently available
      */
-    public function checkIsUp(): boolean
+    public function checkIsUp(): bool
     {
-        $retcode = curl_getinfo($apiConnection, CURLINFO_HTTP_CODE);
+        $retcode = curl_getinfo($this->apiConnection, CURLINFO_HTTP_CODE);
 
         if ($retcode < 300) {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
     /**
      * Load the dwellings in from the API

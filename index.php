@@ -28,7 +28,7 @@
     <script src="https://kit.fontawesome.com/c90803ff49.js" crossorigin="anonymous"></script>
   </head>
   
-  <body>
+  <body id="top">
 
     <header>
         <div class="headerContent">
@@ -41,7 +41,7 @@
         <div class="headerBaseBar"></div>
     </header>
 
-    <section>
+    <section class="allDwellingsContainer">
 
         <div class="dwellingContainer">
             
@@ -62,12 +62,127 @@
             </div>
         </div>
 
+        <div class="dwellingContainer">
+            
+            <div class="dwellingImageContainer">
+                    <img class="dwellingMainImage" src="src/images/testpic.jpeg">
+                    <div class="imageStatusText">SOLD</div>
+                    
+            </div>
+         
+
+            <div class="dwellingInfo">
+                <div class="price">£12345</div>
+                <hr>
+                <div class="dwellingAddress info">Address, 1 Address St, Address Town</div>
+                <div class="dwellingStatus info">Property for Sale</div>
+                <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 1 bedroom</div>
+                <!-- <button class="viewPropertyButton"><a>View Property</a></button> -->
+            </div>
+        </div>
+
+        <div class="dwellingContainer">
+            
+            <div class="dwellingImageContainer">
+                    <img class="dwellingMainImage" src="src/images/testpic.jpeg">
+                    <div class="imageStatusText">SOLD</div>
+                    
+            </div>
+         
+
+            <div class="dwellingInfo">
+                <div class="price">£12345</div>
+                <hr>
+                <div class="dwellingAddress info">Address, 1 Address St, Address Town</div>
+                <div class="dwellingStatus info">Property for Sale</div>
+                <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 1 bedroom</div>
+                <!-- <button class="viewPropertyButton"><a>View Property</a></button> -->
+            </div>
+        </div>
+
+        <div class="dwellingContainer">
+            
+            <div class="dwellingImageContainer">
+                    <img class="dwellingMainImage" src="src/images/testpic.jpeg">
+                    <div class="imageStatusText">SOLD</div>
+                    
+            </div>
+         
+
+            <div class="dwellingInfo">
+                <div class="price">£12345</div>
+                <hr>
+                <div class="dwellingAddress info">Address, 1 Address St, Address Town</div>
+                <div class="dwellingStatus info">Property for Sale</div>
+                <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 1 bedroom</div>
+                <!-- <button class="viewPropertyButton"><a>View Property</a></button> -->
+            </div>
+        </div>
+
+        <div class="dwellingContainer">
+            
+            <div class="dwellingImageContainer">
+                    <img class="dwellingMainImage" src="src/images/testpic.jpeg">
+                    <div class="imageStatusText">SOLD</div>
+                    
+            </div>
+         
+
+            <div class="dwellingInfo">
+                <div class="price">£12345</div>
+                <hr>
+                <div class="dwellingAddress info">Address, 1 Address St, Address Town</div>
+                <div class="dwellingStatus info">Property for Sale</div>
+                <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 1 bedroom</div>
+                <!-- <button class="viewPropertyButton"><a>View Property</a></button> -->
+            </div>
+        </div>
+
+        <div class="dwellingContainer">
+            
+            <div class="dwellingImageContainer">
+                    <img class="dwellingMainImage" src="src/images/testpic.jpeg">
+                    <div class="imageStatusText">SOLD</div>
+                    
+            </div>
+         
+
+            <div class="dwellingInfo">
+                <div class="price">£12345</div>
+                <hr>
+                <div class="dwellingAddress info">Address, 1 Address St, Address Town</div>
+                <div class="dwellingStatus info">Property for Sale</div>
+                <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 1 bedroom</div>
+                <!-- <button class="viewPropertyButton"><a>View Property</a></button> -->
+            </div>
+        </div>
+
+        <div class="dwellingContainer">
+            
+            <div class="dwellingImageContainer">
+                    <img class="dwellingMainImage" src="src/images/testpic.jpeg">
+                    <div class="imageStatusText">SOLD</div>
+                    
+            </div>
+         
+
+            <div class="dwellingInfo">
+                <div class="price">£12345</div>
+                <hr>
+                <div class="dwellingAddress info">Address, 1 Address St, Address Town</div>
+                <div class="dwellingStatus info">Property for Sale</div>
+                <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 1 bedroom</div>
+                <!-- <button class="viewPropertyButton"><a>View Property</a></button> -->
+            </div>
+        </div>
+
+       
     </section>
 
     <footer>
         <div class="footerText">©Copyright Naked Mole Rats 2020</div>
         <div class="toTop">
-            <i class="fas fa-angle-double-up"></i>
+            <a href="#top"><i class="fas fa-angle-double-up"></i></a>
         </div>
     </footer>
     

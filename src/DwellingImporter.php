@@ -5,77 +5,78 @@ namespace NMF;
 class DwellingImporter{
     private $db;
     private $api;
-
+    
+    /**
+     * class to import the data from the API into the database
+     *
+     * @param \PDO $db PDO connection to the db
+     * @param Object $api instance of dwelling api
+     */
     public function __construct(\PDO $db,Object $api)
     {
         $this->db = $db;
         $this->api = $api;
     }
-
+    /** 
+     * deletes all data from the dwellings, statuses and types tables 
+     */
     private function deleteTables()
     {
-        $query = $this->db->prepare("DROP TABLE IF EXISTS `dwellings`;");
+        $query = $this->db->prepare("TRUNCATE TABLE dwellings;");
         $query->execute();
-        $query = $this->db->prepare("CREATE TABLE `dwellings` (
-            `dwellingId` int(11) unsigned NOT NULL AUTO_INCREMENT,
-            `agentRef` varchar(13) NOT NULL DEFAULT '',
-            `address1` varchar(100) NOT NULL DEFAULT '',
-            `address2` varchar(100) DEFAULT NULL,
-            `town` varchar(100) NOT NULL DEFAULT '',
-            `postcode` varchar(10) NOT NULL DEFAULT '',
-            `description` varchar(1000) NOT NULL DEFAULT '',
-            `bedrooms` int(11) NOT NULL,
-            `price` decimal(10,0) NOT NULL,
-            `image` varchar(11) NOT NULL DEFAULT '',
-            `typeId` int(11) NOT NULL,
-            `statusId` int(11) NOT NULL,
-            PRIMARY KEY (`dwellingId`)
-          ) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
+        $query = $this->db->prepare("TRUNCATE TABLE statuses;");
         $query->execute();
-        $query = $this->db->prepare("DROP TABLE IF EXISTS `statuses`;");
-        $query->execute();
-        $query = $this->db->prepare("CREATE TABLE `statuses` (
-            `statusId` int(11) unsigned NOT NULL AUTO_INCREMENT,
-            `status` varchar(11) NOT NULL DEFAULT '',
-            PRIMARY KEY (`statusId`)
-          ) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
-        $query->execute();
-        $query = $this->db->prepare("DROP TABLE IF EXISTS `types`;");
-        $query->execute();
-        $query = $this->db->prepare("CREATE TABLE `types` (
-            `typeId` int(11) unsigned NOT NULL AUTO_INCREMENT,
-            `type` varchar(11) NOT NULL DEFAULT '',
-            PRIMARY KEY (`typeId`)
-          ) ENGINE=InnoDB DEFAULT CHARSET=latin1;");
+        $query = $this->db->prepare("TRUNCATE TABLE types;");
         $query->execute();
     }
-
+    /**
+     * inserts data from dwellings from API into the db
+     */
     private function insertDwellings()
     {
         $dwellings = $this->api->loadDwellings();
 
        foreach ($dwellings as $dwelling) {
-           $query = $this->db->prepare('INSERT INTO dwellings VALUES (:agentRef, :address1, :address2, :town, :postcode, :description, :bedrooms, :price, :image, :typeId, :statusId)');
-           $query->execute($dwelling);
+           $query = $this->db->prepare('INSERT INTO `dwellings` (`agentRef`, `address1`, `address2`, `town`, `postcode`, `description`, `bedrooms`, `price`, `image`, `typeId`, `statusId`) VALUES (:agentRef, :address1, :address2, :town, :postcode, :description, :bedrooms, :price, :image, :typeId, :statusId)');
+           $query->bindParam(':agentRef', $dwelling->AGENT_REF);
+           $query->bindParam(':address1', $dwelling->ADDRESS_1);
+           $query->bindParam(':address2', $dwelling->ADDRESS_2);
+           $query->bindParam(':town', $dwelling->TOWN);
+           $query->bindParam(':postcode', $dwelling->POSTCODE);
+           $query->bindParam(':description', $dwelling->DESCRIPTION);
+           $query->bindParam(':bedrooms', $dwelling->BEDROOMS);
+           $query->bindParam(':price', $dwelling->PRICE);
+           $query->bindParam(':image', $dwelling->IMAGE);
+           $query->bindParam(':typeId', $dwelling->TYPE);
+           $query->bindParam(':statusId', $dwelling->STATUS);
+           $query->execute();
        }
     }
-
+    /**
+     * inserts types from API
+     */
     private function insertTypes(){
         $types = $this->api->loadTypes();
         foreach ($types as $type) {
-            $query = $this->db->prepare('INSERT INTO types VALUES (:type)');
-            $query->execute($type);
+            $query = $this->db->prepare('INSERT INTO types (type) VALUES (:type)');
+            $query->bindParam(':type', $type->TYPE_NAME);
+            $query->execute();
         }
     }
-
+    /**
+     * inserts statuses from API
+     */
     private function insertStatuses(){
-        $statuses = $this->api->loadTypes();
+        $statuses = $this->api->loadStatuses();
         foreach ($statuses as $status) {
-            $query = $this->db->prepare('INSERT INTO statuses VALUES (:status)');
-            $query->execute($status);
+            $query = $this->db->prepare('INSERT INTO statuses (status) VALUES (:status)');
+            $query->bindParam(':status', $status->STATUS_NAME);
+            $query->execute();
         }
     }
-
+    /**
+     * deletes the data in the tables and inserts the data from the API
+     */
     public function refreshDB(){
         $this->deleteTables();
         $this->insertDwellings();

@@ -1,5 +1,7 @@
 <?php
 
+namespace NMF;
+
 class Dwelling 
 {
     private $agentRef;

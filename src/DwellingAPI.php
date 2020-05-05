@@ -1,5 +1,7 @@
 <?php
 
+namespace NMF;
+
 Class DwellingAPI 
 {
     private $apiUrl;

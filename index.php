@@ -45,20 +45,20 @@
 
         <div class="dwellingContainer">
             
-        
-            <img class="dwellingMainImage" src="src/images/testpic.jpeg">
-            
-       
-        
-            
+            <div class="dwellingImageContainer">
+                    <img class="dwellingMainImage" src="src/images/testpic.jpeg">
+                    <div class="imageStatusText">SOLD</div>
+                    
+            </div>
+         
 
             <div class="dwellingInfo">
-                <div class="price"></div>
-                <div class="pageBreak"></div>
-                <div class="dwellingAddress">Address, 1 Address St, Address Town</div>
-                <div class="dwellingStatus">Property for Sale</div>
-                <div class="dwellingBedrooms">1<i class="fas fa-bed"></i></div>
-                <button class="viewPropertyButton"><a>View Property</a></button>
+                <div class="price">£12345</div>
+                <hr>
+                <div class="dwellingAddress info">Address, 1 Address St, Address Town</div>
+                <div class="dwellingStatus info">Property for Sale</div>
+                <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 1 bedroom</div>
+                <!-- <button class="viewPropertyButton"><a>View Property</a></button> -->
             </div>
         </div>
 

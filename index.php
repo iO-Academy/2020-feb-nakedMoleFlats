@@ -1,5 +1,7 @@
 <?php
-    require_once('vendor/autoload.php')
+    require_once('vendor/autoload.php');
+    use \NMF\DisplayDwellings;
+    use \NMF\DwellingHydrator;
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +45,7 @@
     <section class="allDwellingsContainer">
         <?php
             $hydrator = new DwellingHydrator(new PDO('mysql:host=db; dbname=NMF', 'root', 'password'));
-            $hydrator->loadAllDwellings();
+            echo DisplayDwellings::loadAllDwellings($hydrator->loadAllDwellings());
         ?>
     </section>
     <footer>

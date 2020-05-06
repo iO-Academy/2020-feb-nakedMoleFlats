@@ -1,4 +1,6 @@
 .DS_Store
 .idea
 .vscode
-/vendor
+vendor
+node_modules
+dist

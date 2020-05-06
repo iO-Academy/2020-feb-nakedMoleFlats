@@ -7,7 +7,7 @@ require_once 'vendor/autoload.php';
 
 $api = new DwellingAPI("https://dev.maydenacademy.co.uk/resources/property-feed/");
 
-$db = new PDO('mysql:host=db; dbname=NMF', 'root', 'password');
+$db = new PDO('mysql:host=db; dbname=NakedMoleFlats', 'root', 'password');
 
 $importer = new DwellingImporter($db, $api);
 

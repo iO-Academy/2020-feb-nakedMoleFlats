@@ -1,0 +1,55 @@
+@media only screen 
+  and (min-width: 1024px)
+    {
+    body {
+        header {
+            height: auto;
+            .headerContent {
+                display: flex;
+                width: 35%;
+                justify-content: space-between;
+                padding: 2% 0;
+                img {
+                    width: auto;
+                    height: 80%;
+                    overflow: hidden;
+                }
+                .headerText {
+                    margin: 0;
+                    h1 {
+                        font-size: 2vw;
+                    }
+                    h2 {
+                       font-size: 1vw;
+                    }
+                }
+            }
+        }
+        .allDwellingsContainer {
+            display: grid;
+            max-width: 1600px;
+            width: 90%;
+            margin: 5vh auto;
+            grid-template-columns: 1fr 1fr 1fr;
+            .dwellingContainer {
+                box-sizing: border-box;
+                justify-self: center;
+                margin: 5% 0.25%;
+            }
+        }
+        footer{
+            .footerText{
+                margin-left: 5%;
+                font-size: 2vh;
+                width: 60%;
+            }
+            .toTop{
+                margin-right: 5%;
+                font-size: 6vh;
+                width: auto;
+                max-height: 100%;
+                text-decoration: none;
+            }
+        }
+    }
+}

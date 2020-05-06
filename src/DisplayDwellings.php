@@ -63,10 +63,10 @@ class DisplayDwellings
         return $result;
     }
 
-    public static function displayDwelling(Object $dwellingToDisplay): string
+    public static function displayDwelling(Dwelling $dwellingToDisplay): string
     {
         // Check that the database has some dwellings in it
-        if (!count($dwellingToDisplay)) {
+        if (!$dwellingToDisplay) {
             // If the DB is empty (probably because a refresh failed), return a neat error to the front end
             return
                 '<div class="dwellingInfo">'
@@ -75,39 +75,30 @@ class DisplayDwellings
                 . '</div>'
                 . '</div>';
         }
-
-        // Empty string to which our HTML will be appended
-        $result = '';
-
-        foreach ($dwellingsToDisplay as $dwelling) {
-            $statusBox = '';
-            //check if a dwelling is sold or let agreed and display overlay if so
-            if ($dwelling->getStatus() === 'Sold' || $dwelling->getStatus() === 'Let Agreed') {
-                $statusBox = "<div class=\"imageStatusText\">" . $dwelling->getStatus() . "</div>";
-            }
-            // Check that the database has a provided image URL for the dwelling in question, and use
-            // A placeholder image if it does not
-            if (!$dwelling->getImage()) {
-                $image = 'src/images/testpic.jpeg';
-            } else {
-                $image = 'https://dev.maydenacademy.co.uk/resources/property-feed/images/' . $dwelling->getImage();
-            }
-            // Generate the actual HTML to display the dwelling's information
-            $result .= '<main class="propertyDetailsContainer">'
-            .'<img class="propertyDetailsImage mobileImage" src="'.$image.'">'
-            .'<div class="propertyDetailsText">'
-            .'<div class="price">' . $dwelling->getPrice() . '</div>'
-            .'<hr>'
-            .'<div class="dwellingAddress info">' . $dwelling->getAddress1() . ', ' . $dwelling->getAddress2() . ', ' . $dwelling->getTown() . '</div>'
-            .'<div class="dwellingPostcode info">' . $dwelling->getPostcode() . '</div>'
-            .'<div class="dwellingStatus info">' . $dwelling->getStatus() . '</div>'
-            .'<div class="dwellingBedrooms info"><i class="fas fa-bed"></i>' . ' ' . $dwelling->getBedrooms() . '</div>'
-            .'<hr>'
-            .'<img class="propertyDetailsImage desktopImage" src="'.$image.'">'
-            .'<div class="descriptionHeader info">Description:</div>'
-            .'<div class="dwellingDescription info">'.$dwelling->getDescription().'</div>'
-            .'</main>;';
+        
+        // Check that the database has a provided image URL for the dwelling in question, and use
+        // A placeholder image if it does not
+        if (!$dwellingToDisplay->getImage()) {
+            $image = 'src/images/testpic.jpeg';
+        } else {
+            $image = 'https://dev.maydenacademy.co.uk/resources/property-feed/images/' . $dwellingToDisplay->getImage();
         }
+        // Generate the actual HTML to display the dwelling's information
+        $result = '<main class="propertyDetailsContainer">'
+        .'<img class="propertyDetailsImage mobileImage" src="'.$image.'">'
+        .'<div class="propertyDetailsText">'
+        .'<div class="price">£' . $dwellingToDisplay->getPrice() . '</div>'
+        .'<hr>'
+        .'<div class="dwellingAddress info">' . $dwellingToDisplay->getAddress1() . ', ' . $dwellingToDisplay->getAddress2() . ', ' . $dwellingToDisplay->getTown() . '</div>'
+        .'<div class="dwellingPostcode info">' . $dwellingToDisplay->getPostcode() . '</div>'
+        .'<div class="dwellingStatus info">' . $dwellingToDisplay->getStatus() . '</div>'
+        .'<div class="dwellingBedrooms info"><i class="fas fa-bed"></i>' . ' ' . $dwellingToDisplay->getBedrooms() . '</div>'
+        .'<hr>'
+        .'<img class="propertyDetailsImage desktopImage" src="'.$image.'">'
+        .'<div class="descriptionHeader info">Description:</div>'
+        .'<div class="dwellingDescription info">'.$dwellingToDisplay->getDescription().'</div>'
+        .'</div>'
+        .'</main>;';
 
         return $result;
     }

@@ -75,6 +75,9 @@ class FunctionTest extends TestCase {
     public function testResourcesNotFoundTest()
     {
         $fakeDwelling = $this->createMock(Dwelling::class);
+        $fakeDwelling-> expects($this->once())
+        ->method('getDwellingId')
+        ->willReturn('Mayden Academy');
         $fakeDwelling
         ->method('getAgentRef')
         ->willReturn('Alex M');
@@ -152,4 +155,6 @@ class FunctionTest extends TestCase {
         //run test
         $result = DisplayDwellings::displayAllDwellings('Mayden Academy');
     }
+
+    
 }

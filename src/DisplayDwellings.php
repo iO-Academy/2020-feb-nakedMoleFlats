@@ -24,9 +24,14 @@ class DisplayDwellings
             } else {
                 $statusBox = '';
             }
+            if(!$dwelling->getImage()) {
+                $image = 'src/images/testpic.jpeg';
+            }else{
+                $image = 'https://dev.maydenacademy.co.uk/resources/property-feed/images/' . $dwelling->getImage();
+            }
             $result .= '<div class="dwellingContainer">'    
             . '<div class="dwellingImageContainer">'
-                    . '<img class="dwellingMainImage" src="https://dev.maydenacademy.co.uk/resources/property-feed/images/' . $dwelling->getImage() . '">'
+                    . '<img class="dwellingMainImage" src="' . $image . '" alt="Picture of Property">'
                     . $statusBox
             . '</div>'
             . '<div class="dwellingInfo">'

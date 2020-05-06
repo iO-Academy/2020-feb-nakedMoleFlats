@@ -63,7 +63,8 @@
                     position: relative;
                     text-align: center;
                     color: #ffffff;
-                    // min-height: 55%;
+                    height: 300px;
+                    overflow: hidden;
                     .imageStatusText {
                         opacity: 0.8;
                         background-color:$brandColor;
@@ -76,7 +77,6 @@
                     }
                     .dwellingMainImage {
                         width: 100%;
-                        overflow: hidden;
                         position: relative;
                     }
                 }

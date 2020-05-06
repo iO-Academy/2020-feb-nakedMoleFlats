@@ -35,6 +35,11 @@
                 -webkit-box-sizing: border-box;
                 justify-self: center;
                 margin: 5% 0.25%;
+                form {
+                    button {
+                        width: 50%;
+                    }
+                }
             }
         }
         footer{

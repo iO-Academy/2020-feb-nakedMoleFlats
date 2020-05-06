@@ -55,7 +55,7 @@ class DisplayDwellings
                 . '<div class="dwellingBedrooms info"><i class="fas fa-bed"></i>' . ' ' . $dwelling->getBedrooms() . ' bedrooms</div>'
                 . '</div>'
                 . '<form method="GET" action="propertydetails.php">'
-                . '<button type="submit" value='.$dwelling->getDwellingId().'>View Property</button>'
+                . '<button name="dwellingId" type="submit" value='.$dwelling->getDwellingId().'>View Property</button>'
                 . '</form>'
                 . '</div>';
         }

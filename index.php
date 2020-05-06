@@ -44,7 +44,7 @@
     </header>
     <section class="allDwellingsContainer">
         <?php
-            $hydrator = new DwellingHydrator(new PDO('mysql:host=db; dbname=NMF', 'root', 'password'));
+            $hydrator = new DwellingHydrator(new PDO('mysql:host=db; dbname=NakedMoleFlats', 'root', 'password'));
             echo DisplayDwellings::loadAllDwellings($hydrator->loadAllDwellings());
         ?>
     </section>

@@ -33,7 +33,7 @@ class DisplayDwellings
                 . '<div class="price">£' . $dwelling->getPrice() . '</div>'
                 . '<hr>'
                 . '<div class="dwellingAddress info">' . $dwelling->getAddress1() . ', ' . $dwelling->getAddress2() . ', ' . $dwelling->getTown() . '</div>'
-                . '<div class="dwellingPostcode" info>' . $dwelling->getPostcode() . '</div>'
+                . '<div class="dwellingPostcode info">' . $dwelling->getPostcode() . '</div>'
                 . '<div class="dwellingStatus info">' . $dwelling->getStatus() . '</div>'
                 . '<div class="dwellingBedrooms info"><i class="fas fa-bed"></i>' . ' ' . $dwelling->getBedrooms() . ' bedrooms</div>'
             . '</div>'

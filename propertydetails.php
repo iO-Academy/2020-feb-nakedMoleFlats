@@ -43,10 +43,8 @@
         <hr>
         <div class="dwellingAddress info">Mayden Academy, 1 Widcombe Crescent, Bath</div>
         <div class="dwellingPostcode info">BA2 6AH</div>
-        <div class="bedroomAndStatus">
-            <div class="dwellingStatus info">For Sale</div>
-            <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 5 Bedrooms</div>
-        </div>
+        <div class="dwellingStatus info">For Sale</div>
+        <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 5 Bedrooms</div>
         <hr>
         <img class="propertyDetailsImage desktopImage" src="src/images/testpic.jpeg">
         <div class="descriptionHeader info">Description:</div>

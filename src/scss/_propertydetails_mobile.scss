@@ -1,24 +1,20 @@
-.price {
-    font-weight: 600;
-}
-
 .propertyDetailsImage {
     width: 100%;
     height: auto;
 }
-
 .desktopImage {
     display: none;
 }
-
 .propertyDetailsText {
     width: 90%;
     margin: 10px auto;
     .info {
         padding-bottom: 3%;
     }
-}
-
-.descriptionHeader {
-    font-weight: 600;
+    .price {
+        font-weight: 600;
+    }
+    .descriptionHeader {
+        font-weight: 600;
+    }
 }

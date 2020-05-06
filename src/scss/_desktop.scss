@@ -30,7 +30,7 @@
             max-width: 1600px;
             width: 90%;
             margin: 5vh auto;
-            grid-template-columns: auto auto auto;
+            grid-template-columns: 1fr 1fr 1fr;
             .dwellingContainer {
                 -webkit-box-sizing: border-box;
                 justify-self: center;

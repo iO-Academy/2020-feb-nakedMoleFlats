@@ -32,7 +32,7 @@
             margin: 5vh auto;
             grid-template-columns: 1fr 1fr 1fr;
             .dwellingContainer {
-                box-sizing: border-box;
+                -webkit-box-sizing: border-box;
                 justify-self: center;
                 margin: 5% 0.25%;
             }

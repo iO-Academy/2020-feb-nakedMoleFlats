@@ -37,7 +37,7 @@
         <div class="headerBaseBar"></div>
     </header>
     <main class="propertyDetailsContainer">
-        <img class="propertyDetailsImage" src="src/images/testpic.jpeg">
+        <img class="propertyDetailsImage mobileImage" src="src/images/testpic.jpeg">
         <div class="propertyDetailsText">
         <div class="price">£1000000</div>
         <hr>
@@ -46,6 +46,7 @@
         <div class="dwellingStatus info">For Sale</div>
         <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 5 Bedrooms</div>
         <hr>
+        <img class="propertyDetailsImage desktopImage" src="src/images/testpic.jpeg">
         <div class="descriptionHeader info">Description:</div>
         <div class="dwellingDescription info">This is where the property's description would go</div>
     </main>

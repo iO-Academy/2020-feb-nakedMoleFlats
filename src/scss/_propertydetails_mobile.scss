@@ -2,3 +2,16 @@
     width: 100%;
     height: auto;
 }
+
+.desktopImage {
+    display: none;
+}
+
+.propertyDetailsText {
+    width: 90%;
+    margin: 10px auto;
+    .info {
+        padding-bottom: 3%;
+    }
+}
+

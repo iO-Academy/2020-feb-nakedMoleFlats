@@ -1,0 +1,16 @@
+@media only screen 
+  and (min-width: 1024px)
+  {
+      .propertyDetailsContainer 
+      {
+        min-width: 1024px;
+        width: 80%;
+        margin: 0 auto;
+        .desktopImage {
+            display: block;
+        }
+        .mobileImage {
+            display: none;
+        }
+      }
+  }

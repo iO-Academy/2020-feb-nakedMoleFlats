@@ -31,8 +31,9 @@ class DwellingHydrator
     }
     /**
      * takes database connection and joins data from tables to return one dwelling object
+     * @return array of single dwelling object
      */
-    public function loadSingleDwelling() {
+    public function loadSingleDwelling(): array {
         $query = $this->db->prepare('SELECT `dwellings`.`dwellingId`, `dwellings`.`agentRef`, `dwellings`.`address1`, `dwellings`.`address2`, `dwellings`.`town`, `dwellings`.`postcode`, `dwellings`.`description`, `dwellings`.`bedrooms`, `dwellings`.`price`, `dwellings`.`image`, `types`.`type`, `statuses`.`status`                      
                                     FROM ((`dwellings` 
                                     INNER JOIN `types` ON `dwellings`.`typeId` = `types`.`typeId`) 

@@ -13,6 +13,9 @@ class FunctionTest extends TestCase {
     {
         $fakeDwelling = $this->createMock(Dwelling::class);
         $fakeDwelling
+        ->method('getDwellingId')
+        ->willReturn('1');
+        $fakeDwelling
         ->method('getAgentRef')
         ->willReturn('Alex M');
         $fakeDwelling-> expects($this->once())
@@ -51,7 +54,7 @@ class FunctionTest extends TestCase {
         '<div class="dwellingContainer">'    
              . '<div class="dwellingImageContainer">'
                      . '<img class="dwellingMainImage" src="https://dev.maydenacademy.co.uk/resources/property-feed/images/testpic.jpeg" alt="Picture of Property">'
-                     . '<div class="imageStatusText">SOLD</div>'
+                     . '<div class="imageStatusText">Sold</div>'
              . '</div>'
              . '<div class="dwellingInfo">'
                  . '<div class="price">£3000000</div>'
@@ -61,6 +64,9 @@ class FunctionTest extends TestCase {
                  . '<div class="dwellingStatus info">Sold</div>'
                  . '<div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 5 bedrooms</div>'
              . '</div>'
+             . '<form method="GET" action="propertydetails.php">'
+         . '<button name="dwellingId" type="submit" value=1>View Property</button>'
+         . '</form>'
          . '</div>';
         
         //run test
@@ -75,6 +81,9 @@ class FunctionTest extends TestCase {
     public function testResourcesNotFoundTest()
     {
         $fakeDwelling = $this->createMock(Dwelling::class);
+        $fakeDwelling
+        ->method('getDwellingId')
+        ->willReturn('1');
         $fakeDwelling
         ->method('getAgentRef')
         ->willReturn('Alex M');
@@ -123,6 +132,9 @@ class FunctionTest extends TestCase {
                  . '<div class="dwellingStatus info">For Sale</div>'
                  . '<div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 5 bedrooms</div>'
              . '</div>'
+         . '<form method="GET" action="propertydetails.php">'
+         . '<button name="dwellingId" type="submit" value=1>View Property</button>'
+         . '</form>'
          . '</div>';
         
         //run test

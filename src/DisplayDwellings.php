@@ -28,14 +28,6 @@ class DisplayDwellings
         $result = '';
 
         foreach($dwellingsToDisplay as $dwelling) {
-            // Check whether the dwelling is still available for purchase/let, as the callout will not
-            // appear in these cases
-            if($dwelling->getStatus()==='Sold' || $dwelling->getStatus()==='Let Agreed') {
-                $statusCapitalized = strtoupper($dwelling->getStatus());
-                $statusBox = "<div class=\"imageStatusText\">$statusCapitalized</div>";
-            } else {
-                $statusBox = '';
-            }
             // Check that the database has a provided image URL for the dwelling in question, and use
             // A placeholder image if it does not
             if(!$dwelling->getImage()) {
@@ -47,7 +39,7 @@ class DisplayDwellings
             $result .= '<div class="dwellingContainer">'    
             . '<div class="dwellingImageContainer">'
                     . '<img class="dwellingMainImage" src="' . $image . '" alt="Picture of Property">'
-                    . $statusBox
+                    . "<div class=\"imageStatusText\">". $dwelling->getStatus() ."</div>"
             . '</div>'
             . '<div class="dwellingInfo">'
                 . '<div class="price">£' . $dwelling->getPrice() . '</div>'

@@ -13,9 +13,11 @@ class DwellingHydrator{
         $this->db = $db;
     }
     /**
-     * takes database connection and joins data from tables into single object
+     * Queries the DB to get all dwellings, joins on statuses and types to return human readable type and status and returns an array of Dwelling objects
+     *
+     * @return array of dwelling objects
      */
-    public function loadAllDwellings(){
+    public function loadAllDwellings() :array{
         $query = $this->db->prepare('SELECT `dwellings`.`dwellingId`, `dwellings`.`agentRef`, `dwellings`.`address1`, `dwellings`.`address2`, `dwellings`.`town`, `dwellings`.`postcode`, `dwellings`.`description`, `dwellings`.`bedrooms`, `dwellings`.`price`, `dwellings`.`image`, `types`.`type`, `statuses`.`status` 
                                     FROM ((`dwellings` 
                                     INNER JOIN `types` ON `dwellings`.`typeId` = `types`.`typeId`) 

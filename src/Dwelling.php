@@ -16,57 +16,114 @@ class Dwelling
     private $type;
     private $status;
 
-    public function getAgentRef()
+    
+
+    /**
+     * Get the value of agentRef
+     * 
+     * @return string
+     */ 
+    public function getAgentRef() :string
     {
         return $this->agentRef;
     }
 
-    public function getAddress1()
+    /**
+     * Get the value of address1
+     * 
+     * @return string
+     */ 
+    public function getAddress1() :string
     {
         return $this->address1;
     }
 
-    public function getAddress2()
+    /**
+     * Get the value of address2
+     * 
+     * @return string
+     */ 
+    public function getAddress2() :string
     {
         return $this->address2;
     }
 
-    public function getTown()
+    /**
+     * Get the value of town
+     * 
+     * @return string
+     */ 
+    public function getTown() :string
     {
         return $this->town;
     }
 
-    public function getPostcode()
+    /**
+     * Get the value of postcode
+     * 
+     * @return string
+     */ 
+    public function getPostcode() :string
     {
         return $this->postcode;
     }
 
-    public function getDescription()
+    /**
+     * Get the value of description
+     * 
+     * @return string
+     */ 
+    public function getDescription() :string
     {
         return $this->description;
     }
 
-    public function getBedrooms()
+    /**
+     * Get the value of bedrooms
+     * 
+     * @return string
+     */ 
+    public function getBedrooms() :string
     {
         return $this->bedrooms;
     }
 
-    public function getPrice()
+    /**
+     * Get the value of price
+     * 
+     * @return string
+     */ 
+    public function getPrice() :string
     {
         return $this->price;
     }
 
-    public function getImage()
+    /**
+     * Get the value of image
+     * 
+     * @return string
+     */ 
+    public function getImage() :string
     {
         return $this->image;
     }
 
-    public function getType()
+    /**
+     * Get the value of type
+     * 
+     * @return string
+     */ 
+    public function getType() :string
     {
         return $this->type;
     }
 
-    public function getStatus()
+    /**
+     * Get the value of status
+     * 
+     * @return string
+     */ 
+    public function getStatus() :string
     {
         return $this->status;
     }

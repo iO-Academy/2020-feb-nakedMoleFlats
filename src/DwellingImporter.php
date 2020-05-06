@@ -2,10 +2,11 @@
 
 namespace NMF;
 
-class DwellingImporter{
+class DwellingImporter
+{
     private $db;
     private $api;
-    
+
     /**
      * class to import the data from the API into the database
      *
@@ -17,10 +18,12 @@ class DwellingImporter{
         $this->db = $db;
         $this->api = $api;
     }
-    /** 
-     * deletes all data from the dwellings, statuses and types tables 
+    /**
+     * Deletes the data in all the tables
+     *
+     * @return void
      */
-    private function deleteTables()
+    private function deleteTables() :void
     {
         $query = $this->db->prepare("TRUNCATE TABLE `dwellings`;");
         $query->execute();
@@ -30,35 +33,41 @@ class DwellingImporter{
         $query->execute();
     }
     /**
-     * inserts data from dwellings from API into the db
+     * Inserts the dwellings returned by the api into the database
+     *
+     * @return void
      */
-    private function insertDwellings()
+    private function insertDwellings(): void
     {
-        $dwellings = $this->api->loadDwellings();
+        $dwellings = $this->api->loadEndpoint('properties.json');
 
         foreach ($dwellings as $dwelling) {
-           $query = $this->db->prepare('INSERT INTO `dwellings` (`agentRef`, `address1`, `address2`, `town`, `postcode`, `description`, `bedrooms`, `price`, `image`, `typeId`, `statusId`) 
+            $query = $this->db->prepare(
+                'INSERT INTO `dwellings` (`agentRef`, `address1`, `address2`, `town`, `postcode`, `description`, `bedrooms`, `price`, `image`, `typeId`, `statusId`) 
                                         VALUES (:agentRef, :address1, :address2, :town, :postcode, :description, :bedrooms, :price, :image, :typeId, :statusId)'
-                                        );
-           $query->bindParam(':agentRef', $dwelling->AGENT_REF);
-           $query->bindParam(':address1', $dwelling->ADDRESS_1);
-           $query->bindParam(':address2', $dwelling->ADDRESS_2);
-           $query->bindParam(':town', $dwelling->TOWN);
-           $query->bindParam(':postcode', $dwelling->POSTCODE);
-           $query->bindParam(':description', $dwelling->DESCRIPTION);
-           $query->bindParam(':bedrooms', $dwelling->BEDROOMS);
-           $query->bindParam(':price', $dwelling->PRICE);
-           $query->bindParam(':image', $dwelling->IMAGE);
-           $query->bindParam(':typeId', $dwelling->TYPE);
-           $query->bindParam(':statusId', $dwelling->STATUS);
-           $query->execute();
+            );
+            $query->bindParam(':agentRef', $dwelling->AGENT_REF);
+            $query->bindParam(':address1', $dwelling->ADDRESS_1);
+            $query->bindParam(':address2', $dwelling->ADDRESS_2);
+            $query->bindParam(':town', $dwelling->TOWN);
+            $query->bindParam(':postcode', $dwelling->POSTCODE);
+            $query->bindParam(':description', $dwelling->DESCRIPTION);
+            $query->bindParam(':bedrooms', $dwelling->BEDROOMS);
+            $query->bindParam(':price', $dwelling->PRICE);
+            $query->bindParam(':image', $dwelling->IMAGE);
+            $query->bindParam(':typeId', $dwelling->TYPE);
+            $query->bindParam(':statusId', $dwelling->STATUS);
+            $query->execute();
         }
     }
     /**
-     * inserts types from API
+     * Inserts the Types returned by the api into the database
+     *
+     * @return void
      */
-    private function insertTypes(){
-        $types = $this->api->loadTypes();
+    private function insertTypes(): void
+    {
+        $types = $this->api->loadEndpoint('types.json');
         foreach ($types as $type) {
             $query = $this->db->prepare('INSERT INTO `types` (`type`) VALUES (:type)');
             $query->bindParam(':type', $type->TYPE_NAME);
@@ -66,10 +75,13 @@ class DwellingImporter{
         }
     }
     /**
-     * inserts statuses from API
+     * Inserts the Statuses returned by the api into the database
+     *
+     * @return void
      */
-    private function insertStatuses(){
-        $statuses = $this->api->loadStatuses();
+    private function insertStatuses(): void
+    {
+        $statuses = $this->api->loadEndpoint('statuses.json');
         foreach ($statuses as $status) {
             $query = $this->db->prepare('INSERT INTO `statuses` (`status`) VALUES (:status)');
             $query->bindParam(':status', $status->STATUS_NAME);
@@ -77,15 +89,20 @@ class DwellingImporter{
         }
     }
     /**
-     * deletes the data in the tables and inserts the data from the API
+     * Checks the API is up if up deletes all data in the database, inserts new data from the api and returns a confirmation string.
+     * If the API is not up it returns a failure string
+     * 
+     * @return String whether the API is up or not.
      */
-    public function refreshDB(){
-        if ($this->api->checkIsUp())
-        {
+    public function refreshDB(): String
+    {
+        if ($this->api->checkIsUp()) {
             $this->deleteTables();
             $this->insertDwellings();
             $this->insertTypes();
-            $this->insertStatuses();  
+            $this->insertStatuses();
+            return "Database has been refreshed.";
         }
+        return "The database has not been refreshed as the API is down.";
     }
 }

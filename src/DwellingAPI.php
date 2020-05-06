@@ -39,36 +39,15 @@ class DwellingAPI
         }
         return false;
     }
+
     /**
      * Load the dwellings in from the API
      * 
      * @return Array an indexed array of objects. Each object represents a dwelling
      */
-    public function loadDwellings() : Array
+    public function loadEndpoint(string $anEndpoint) : Array
     {
-        curl_setopt($this->apiConnection, CURLOPT_URL, $this->apiUrl . 'properties.json');
-        $output = curl_exec($this->apiConnection);
-        return json_decode($output);
-    }
-    /**
-     * Load the types in from the API
-     * 
-     * @return Array an indexed array of objects. Each object represents a type
-     */
-    public function loadTypes() : Array
-    {
-        curl_setopt($this->apiConnection, CURLOPT_URL, $this->apiUrl . 'types.json');
-        $output = curl_exec($this->apiConnection);
-        return json_decode($output);
-    }
-    /**
-     * Load the statuses in from the API
-     * 
-     * @return Array an indexed array of objects. Each object represents a status
-     */
-    public function loadStatuses() : Array
-    {
-        curl_setopt($this->apiConnection, CURLOPT_URL, $this->apiUrl . 'statuses.json');
+        curl_setopt($this->apiConnection, CURLOPT_URL, $this->apiUrl . $anEndpoint);
         $output = curl_exec($this->apiConnection);
         return json_decode($output);
     }

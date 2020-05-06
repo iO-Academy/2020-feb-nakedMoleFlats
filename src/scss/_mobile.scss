@@ -55,8 +55,8 @@
                 margin: 2vh auto;
                 border: 1px solid $brandColor;
                 color: $brandColor;
-                text-align: center;
                 padding-bottom: 4%;
+                position: relative;
                 .dwellingImageContainer {
                     position: relative;
                     text-align: center;
@@ -94,12 +94,12 @@
                     }
                 }
                 form {
+                    text-align: center;
                     button {
                         background-color: $brandColor;
                         color: $brandFontColor;
                         border: none;
                         padding: 15px 32px;
-                        text-align: center;
                         text-decoration: none;
                         font-size: 16px;
                         width: 90%;

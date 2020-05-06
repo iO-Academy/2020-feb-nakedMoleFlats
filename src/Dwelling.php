@@ -2,7 +2,7 @@
 
 namespace NMF;
 
-class Dwelling 
+class Dwelling
 {
     private $agentRef;
     private $address1;
@@ -16,14 +16,14 @@ class Dwelling
     private $type;
     private $status;
 
-    
+
 
     /**
      * Get the value of agentRef
      * 
      * @return string
-     */ 
-    public function getAgentRef() :string
+     */
+    public function getAgentRef(): string
     {
         return $this->agentRef;
     }
@@ -32,8 +32,8 @@ class Dwelling
      * Get the value of address1
      * 
      * @return string
-     */ 
-    public function getAddress1() :string
+     */
+    public function getAddress1(): string
     {
         return $this->address1;
     }
@@ -42,8 +42,8 @@ class Dwelling
      * Get the value of address2
      * 
      * @return string
-     */ 
-    public function getAddress2() :string
+     */
+    public function getAddress2(): string
     {
         return $this->address2;
     }
@@ -52,8 +52,8 @@ class Dwelling
      * Get the value of town
      * 
      * @return string
-     */ 
-    public function getTown() :string
+     */
+    public function getTown(): string
     {
         return $this->town;
     }
@@ -62,8 +62,8 @@ class Dwelling
      * Get the value of postcode
      * 
      * @return string
-     */ 
-    public function getPostcode() :string
+     */
+    public function getPostcode(): string
     {
         return $this->postcode;
     }
@@ -72,8 +72,8 @@ class Dwelling
      * Get the value of description
      * 
      * @return string
-     */ 
-    public function getDescription() :string
+     */
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -82,8 +82,8 @@ class Dwelling
      * Get the value of bedrooms
      * 
      * @return string
-     */ 
-    public function getBedrooms() :string
+     */
+    public function getBedrooms(): string
     {
         return $this->bedrooms;
     }
@@ -92,8 +92,8 @@ class Dwelling
      * Get the value of price
      * 
      * @return string
-     */ 
-    public function getPrice() :string
+     */
+    public function getPrice(): string
     {
         return $this->price;
     }
@@ -102,8 +102,8 @@ class Dwelling
      * Get the value of image
      * 
      * @return string
-     */ 
-    public function getImage() :string
+     */
+    public function getImage(): string
     {
         return $this->image;
     }
@@ -112,8 +112,8 @@ class Dwelling
      * Get the value of type
      * 
      * @return string
-     */ 
-    public function getType() :string
+     */
+    public function getType(): string
     {
         return $this->type;
     }
@@ -122,8 +122,8 @@ class Dwelling
      * Get the value of status
      * 
      * @return string
-     */ 
-    public function getStatus() :string
+     */
+    public function getStatus(): string
     {
         return $this->status;
     }

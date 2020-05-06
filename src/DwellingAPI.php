@@ -2,7 +2,7 @@
 
 namespace NMF;
 
-class DwellingAPI 
+class DwellingAPI
 {
     private $apiUrl;
     private $apiConnection;
@@ -41,14 +41,37 @@ class DwellingAPI
     }
 
     /**
-     * Load the dwellings in from the API
+     * Load the json file at the endpoint in from the API
      * 
-     * @return Array an indexed array of objects. Each object represents a dwelling
+     * @return Array an indexed array of objects.
      */
-    public function loadEndpoint(string $anEndpoint) : Array
+    private function loadEndpoint(string $anEndpoint): array
     {
         curl_setopt($this->apiConnection, CURLOPT_URL, $this->apiUrl . $anEndpoint);
         $output = curl_exec($this->apiConnection);
         return json_decode($output);
+    }
+
+    public function loadDwellings(): array
+    {
+        return $this->loadEndpoint('properties.json');
+    }
+    /**
+     * Load the types in from the API
+     * 
+     * @return Array an indexed array of objects. Each object represents a type
+     */
+    public function loadTypes(): array
+    {
+        return $this->loadEndpoint('types.json');
+    }
+    /**
+     * Load the statuses in from the API
+     * 
+     * @return Array an indexed array of objects. Each object represents a status
+     */
+    public function loadStatuses(): array
+    {
+        return $this->loadEndpoint('statuses.json');
     }
 }

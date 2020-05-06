@@ -23,7 +23,7 @@ class DwellingImporter
      *
      * @return void
      */
-    private function deleteTables() :void
+    private function deleteTables(): void
     {
         $query = $this->db->prepare("TRUNCATE TABLE `dwellings`;");
         $query->execute();
@@ -39,7 +39,7 @@ class DwellingImporter
      */
     private function insertDwellings(): void
     {
-        $dwellings = $this->api->loadEndpoint('properties.json');
+        $dwellings = $this->api->loadDwellings();
 
         foreach ($dwellings as $dwelling) {
             $query = $this->db->prepare(
@@ -67,7 +67,7 @@ class DwellingImporter
      */
     private function insertTypes(): void
     {
-        $types = $this->api->loadEndpoint('types.json');
+        $types = $this->api->loadTypes();
         foreach ($types as $type) {
             $query = $this->db->prepare('INSERT INTO `types` (`type`) VALUES (:type)');
             $query->bindParam(':type', $type->TYPE_NAME);
@@ -81,7 +81,7 @@ class DwellingImporter
      */
     private function insertStatuses(): void
     {
-        $statuses = $this->api->loadEndpoint('statuses.json');
+        $statuses = $this->api->loadStatuses();
         foreach ($statuses as $status) {
             $query = $this->db->prepare('INSERT INTO `statuses` (`status`) VALUES (:status)');
             $query->bindParam(':status', $status->STATUS_NAME);

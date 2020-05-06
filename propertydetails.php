@@ -21,14 +21,14 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="dist/css/styles.css" type="text/css">
     <script src="https://kit.fontawesome.com/c90803ff49.js" crossorigin="anonymous"></script>
   </head>
   <body id="top">
     <header>
         <div class="headerContent">
-            <img src="src/images/nakedMoleFlatsLogo.png" alt="Naked Mole Flats Logo">
+            <a href="index.php"><img src="src/images/nakedMoleFlatsLogo.png" alt="Naked Mole Flats Logo"></a>
             <div class="headerText">
                 <h1>NAKED MOLE FLATS</h1>
                 <h2>PROPERTIES OF DISTINCTION</h2>
@@ -43,8 +43,10 @@
         <hr>
         <div class="dwellingAddress info">Mayden Academy, 1 Widcombe Crescent, Bath</div>
         <div class="dwellingPostcode info">BA2 6AH</div>
-        <div class="dwellingStatus info">For Sale</div>
-        <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 5 Bedrooms</div>
+        <div class="bedroomAndStatus">
+            <div class="dwellingStatus info">For Sale</div>
+            <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 5 Bedrooms</div>
+        </div>
         <hr>
         <img class="propertyDetailsImage desktopImage" src="src/images/testpic.jpeg">
         <div class="descriptionHeader info">Description:</div>

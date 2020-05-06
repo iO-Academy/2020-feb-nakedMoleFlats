@@ -37,6 +37,7 @@
         <div class="headerBaseBar"></div>
     </header>
     <main class="propertyDetailsContainer">
+        <img class="propertyDetailsImage" src="src/images/testpic.jpeg">
     </main>
     <footer>
         <div class="footerText">©Copyright Naked Mole Rats 2020</div>

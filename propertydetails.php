@@ -43,56 +43,14 @@
         </div>
         <div class="headerBaseBar"></div>
     </header>
-    <main class="propertyDetailsContainer">
-        <img class="propertyDetailsImage mobileImage" src="
-        <?php
-        // Display the property's image, or a placeholder image if none has been provided
-            if ($dwelling->getImage()) {
-                echo 'https://dev.maydenacademy.co.uk/resources/property-feed/images/' . $dwelling->getImage();
-            } else {
-                echo 'src/images/testpic.jpeg';
-            }
-        ?>">
-        <div class="propertyDetailsText">
-        <div class="price">£
-            <?php 
-            // retrieve price information from the dwelling object
-            echo $dwelling->getPrice(); 
-            ?>
-        </div>
-        <hr>
-        <div class="dwellingAddress info">
-            <?php 
-            // retrieve address information from the dwelling object
-            echo $dwelling->getAddress1() . ', ' . $dwelling->getAddress2() . ', ' . $dwelling->getTown() 
-            ?>
-        </div>
-        <div class="dwellingPostcode info">
-            <?php 
-            // retrieve post code from the dwelling object
-            echo $dwelling->getPostcode() 
-            ?>
-        </div>
-        <div class="dwellingStatus info">Property <?php echo $dwelling->getStatus() ?></div>
-        <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> <?php echo $dwelling->getBedrooms(); ?> Bedrooms</div>
-        <hr>
-        <img class="propertyDetailsImage desktopImage" src="
-        <?php
-            // retrieve an image from the database, or a placeholder if none was provided
-            if ($dwelling->getImage()) {
-                echo 'https://dev.maydenacademy.co.uk/resources/property-feed/images/' . $dwelling->getImage();
-            } else {
-                echo 'src/images/testpic.jpeg';
-            }
-        ?>">
-        <div class="descriptionHeader info">Description:</div>
-        <div class="dwellingDescription info">
-            <?php 
-            // retrieve the dwelling's description from the dwelling object
-            echo $dwelling->getDescription(); 
-            ?>
-        </div>
-    </main>
+    <?php
+        require_once('vendor/autoload.php');
+
+        use NMF\DisplayDwellings;
+        use NMF\DwellingHydrator;
+        $hydrator = new DwellingHydrator(new PDO('mysql:host=db; dbname=NakedMoleFlats', 'root', 'password'));
+        echo DisplayDwellings::displayDwelling($hydrator->loadSingleDwelling());
+    ?>
     <footer>
         <div class="footerText">©Copyright Naked Mole Rats 2020</div>
         <div class="toTop">

@@ -3,6 +3,7 @@
     body {
         background-color: $backgroundColor;
         font-family: $mainFont;
+        font-size: 14px;
         width: 100%;
         margin: 0;
         header {
@@ -19,10 +20,11 @@
             flex-direction: row;
             height: auto;
             color: $brandFontColor;
-            width: 80%;
+            width: auto;
             max-height: 100%;
             margin: auto;
             align-items: center;
+            justify-content: center;
             padding: 5% 0;
                 img {
                     width: 10vh;
@@ -32,14 +34,14 @@
                 .headerText {
                     text-align: center;
                     margin: 0 0 0 5%;
-                    width: 70%;
+                    width: auto;
                     h1 {
-                        font-size: 2.25vh;
+                        font-size: 1.20rem;
                         margin: 2% 0 0 0;
                         font-weight: 400;
                     }
                     h2 {
-                        font-size: 1.25vh;
+                        font-size: .75rem;
                         font-weight: 400;
                     }
                 }
@@ -63,8 +65,7 @@
                     position: relative;
                     text-align: center;
                     color: #ffffff;
-                    height: 300px;
-                    overflow: hidden;
+                    // min-height: 55%;
                     .imageStatusText {
                         opacity: 0.8;
                         background-color:$brandColor;
@@ -77,6 +78,7 @@
                     }
                     .dwellingMainImage {
                         width: 100%;
+                        overflow: hidden;
                         position: relative;
                     }
                 }
@@ -85,6 +87,7 @@
                     padding-bottom: 10%;
                     width: 90%;
                     font-family: $mainFont;
+                    font-size: $bodyFont;
                     margin: auto;
                     .info {
                         padding-bottom: 3%;

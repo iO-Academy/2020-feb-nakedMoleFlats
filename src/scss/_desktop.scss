@@ -5,9 +5,7 @@
         header {
             height: auto;
             .headerContent {
-                display: flex;
-                width: 35%;
-                justify-content: space-between;
+                width: auto;
                 padding: 2% 0;
                 img {
                     width: auto;
@@ -17,11 +15,12 @@
                 .headerText {
                     margin: 0;
                     h1 {
-                        font-size: 2vw;
+                        font-size: 2rem;
                     }
                     h2 {
-                       font-size: 1vw;
+                        font-size: 1.2rem;
                     }
+                    
                 }
             }
         }
@@ -35,6 +34,15 @@
                 -webkit-box-sizing: border-box;
                 justify-self: center;
                 margin: 5% 0.25%;
+                .dwellingImageContainer {
+                   position: relative;
+                   height: 300px;
+                   overflow: hidden;
+                    .dwellingMainImage {
+                        width: 100%;
+                        position: relative;
+                    }
+                }
                 form {
                     button {
                         width: 50%;

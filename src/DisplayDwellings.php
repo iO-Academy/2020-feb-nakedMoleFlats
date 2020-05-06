@@ -62,11 +62,17 @@ class DisplayDwellings
 
         return $result;
     }
-
-    public static function displayDwelling(Dwelling $dwellingToDisplay): string
+    /**
+     * Function to display property details for a single dwelling
+     * 
+     * @param (bool or Dwelling) $dwellingToDisplay the dwelling to be displayed, or false if PDO encountered a problem
+     * 
+     * @return string values to be displayed on the frontend
+     */
+    public static function displayDwelling($dwellingToDisplay): string
     {
         // Check that the database has some dwellings in it
-        if (!$dwellingToDisplay) {
+        if (!isset($_GET['dwellingId'])) {
             // If the DB is empty (probably because a refresh failed), return a neat error to the front end
             return
                 '<div class="dwellingInfo">'
@@ -92,7 +98,7 @@ class DisplayDwellings
         .'<div class="dwellingAddress info">' . $dwellingToDisplay->getAddress1() . ', ' . $dwellingToDisplay->getAddress2() . ', ' . $dwellingToDisplay->getTown() . '</div>'
         .'<div class="dwellingPostcode info">' . $dwellingToDisplay->getPostcode() . '</div>'
         .'<div class="dwellingStatus info">' . $dwellingToDisplay->getStatus() . '</div>'
-        .'<div class="dwellingBedrooms info"><i class="fas fa-bed"></i>' . ' ' . $dwellingToDisplay->getBedrooms() . '</div>'
+        .'<div class="dwellingBedrooms info"><i class="fas fa-bed"></i>' . ' ' . $dwellingToDisplay->getBedrooms() . ' Bedrooms</div>'
         .'<hr>'
         .'<img class="propertyDetailsImage desktopImage" src="'.$image.'">'
         .'<div class="descriptionHeader info">Description:</div>'

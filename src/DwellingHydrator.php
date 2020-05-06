@@ -31,9 +31,9 @@ class DwellingHydrator
     }
     /**
      * takes database connection and joins data from tables to return one dwelling object
-     * @return Dwelling of single dwelling object
+     * @return Single dwelling object or false if PDO encountered a problem
      */
-    public function loadSingleDwelling(): Dwelling {
+    public function loadSingleDwelling() {
         $query = $this->db->prepare('SELECT `dwellings`.`dwellingId`, `dwellings`.`agentRef`, `dwellings`.`address1`, `dwellings`.`address2`, `dwellings`.`town`, `dwellings`.`postcode`, `dwellings`.`description`, `dwellings`.`bedrooms`, `dwellings`.`price`, `dwellings`.`image`, `types`.`type`, `statuses`.`status`                      
                                     FROM ((`dwellings` 
                                     INNER JOIN `types` ON `dwellings`.`typeId` = `types`.`typeId`) 

@@ -55,10 +55,13 @@
                 margin: 2vh auto;
                 border: 1px solid $brandColor;
                 color: $brandColor;
+                text-align: center;
+                padding-bottom: 4%;
                 .dwellingImageContainer {
                     position: relative;
                     text-align: center;
                     color: #ffffff;
+                    // min-height: 55%;
                     .imageStatusText {
                         opacity: 0.8;
                         background-color:$brandColor;
@@ -71,7 +74,7 @@
                     }
                     .dwellingMainImage {
                         width: 100%;
-                            overflow: hidden;
+                        overflow: hidden;
                         position: relative;
                     }
                 }
@@ -89,7 +92,25 @@
                         margin: 4% auto;
                         border-top: 1px solid $brandColor;
                     }
-                }       
+                }
+                form {
+                    button {
+                        background-color: $brandColor;
+                        color: $brandFontColor;
+                        border: none;
+                        padding: 15px 32px;
+                        text-align: center;
+                        text-decoration: none;
+                        font-size: 16px;
+                        width: 90%;
+                        margin: auto;
+                        &:hover {
+                            background-color: $accentColor;
+                            color: $brandColor;
+                            cursor: pointer;
+                        }
+                    }
+                }
             }
         }
         footer {

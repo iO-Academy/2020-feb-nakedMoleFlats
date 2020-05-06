@@ -4,6 +4,7 @@ namespace NMF;
 
 class Dwelling
 {
+    private $dwellingId;
     private $agentRef;
     private $address1;
     private $address2;
@@ -95,7 +96,7 @@ class Dwelling
      */
     public function getPrice(): string
     {
-        return $this->price;
+        return number_format($this->price);
     }
 
     /**
@@ -126,5 +127,15 @@ class Dwelling
     public function getStatus(): string
     {
         return $this->status;
+    }
+
+    /**
+     * Get the value of dwellingId
+     * 
+     * @return string
+     */ 
+    public function getDwellingId(): string
+    {
+        return $this->dwellingId;
     }
 }

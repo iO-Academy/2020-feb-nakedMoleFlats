@@ -31,9 +31,19 @@ class DwellingHydrator
     }
     /**
      * takes database connection and joins data from tables to return one dwelling object
+     * @return Single dwelling object or false if PDO encountered a problem
      */
-    public function loadDwelling()
-    {
-        //todo
+    public function loadSingleDwelling() {
+        $query = $this->db->prepare('SELECT `dwellings`.`dwellingId`, `dwellings`.`agentRef`, `dwellings`.`address1`, `dwellings`.`address2`, `dwellings`.`town`, `dwellings`.`postcode`, `dwellings`.`description`, `dwellings`.`bedrooms`, `dwellings`.`price`, `dwellings`.`image`, `types`.`type`, `statuses`.`status`                      
+                                    FROM ((`dwellings` 
+                                    INNER JOIN `types` ON `dwellings`.`typeId` = `types`.`typeId`) 
+                                    INNER JOIN `statuses` ON `dwellings`.`statusId` = `statuses`.`statusId`)
+                                    WHERE `dwellings`.`dwellingId` = :dwellingId'
+                                    );
+        $query->setFetchMode(\PDO::FETCH_CLASS, 'NMF\Dwelling');
+        $query->bindParam(':dwellingId', $_GET['dwellingId']);
+
+        $query->execute();
+        return $query->fetch();
     }
 }

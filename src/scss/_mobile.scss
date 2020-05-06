@@ -36,9 +36,11 @@
                     h1 {
                         font-size: 2.25vh;
                         margin: 2% 0 0 0;
+                        font-weight: 400;
                     }
                     h2 {
                         font-size: 1.25vh;
+                        font-weight: 400;
                     }
                 }
                 .headerBaseBar {
@@ -55,10 +57,13 @@
                 margin: 2vh auto;
                 border: 1px solid $brandColor;
                 color: $brandColor;
+                padding-bottom: 4%;
+                position: relative;
                 .dwellingImageContainer {
                     position: relative;
                     text-align: center;
                     color: #ffffff;
+                    // min-height: 55%;
                     .imageStatusText {
                         opacity: 0.8;
                         background-color:$brandColor;
@@ -71,7 +76,7 @@
                     }
                     .dwellingMainImage {
                         width: 100%;
-                            overflow: hidden;
+                        overflow: hidden;
                         position: relative;
                     }
                 }
@@ -89,7 +94,27 @@
                         margin: 4% auto;
                         border-top: 1px solid $brandColor;
                     }
-                }       
+                }
+                form {
+                    text-align: center;
+                    button {
+                        font-family: $mainFont;
+                        background-color: $brandColor;
+                        color: $brandFontColor;
+                        border: none;
+                        padding: 15px 32px;
+                        text-decoration: none;
+                        font-size: 16px;
+                        width: 90%;
+                        margin: auto;
+                        font-family: $mainFont;
+                        &:hover {
+                            background-color: $accentColor;
+                            color: $brandColor;
+                            cursor: pointer;
+                        }
+                    }
+                }
             }
         }
         footer {

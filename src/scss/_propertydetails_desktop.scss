@@ -1,0 +1,36 @@
+@media only screen 
+  and (min-width: 1024px)
+  {
+      .propertyDetailsContainer 
+      {
+        min-width: 1024px;
+        width: 80%;
+        margin: 0 auto;
+        .desktopImage {
+            display: block;
+            padding-top: 1%;
+            padding-bottom: 2%;
+        }
+        .mobileImage {
+            display: none;
+        }
+        .price {
+          padding-top: 1%;
+          padding-bottom: 1%;
+        }
+        .info {
+          padding-bottom: 2%;
+        }
+        .dwellingStatus {
+          width: 49%;
+          display: inline-block;
+          padding-bottom: 1%;
+        }
+        .dwellingBedrooms {
+          display: inline-block;
+          width: 50%;
+          text-align: right;
+          padding-bottom: 1%;
+        }
+      }
+  }

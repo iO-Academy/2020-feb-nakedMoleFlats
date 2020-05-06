@@ -1,9 +1,3 @@
-<?php
-    require_once('vendor/autoload.php');
-    use \NMF\DisplayDwellings;
-    use \NMF\DwellingHydrator;
-?>
-
 <!DOCTYPE html>
 <html lang="en-GB">
   <head>
@@ -27,14 +21,21 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="dist/css/styles.css" type="text/css">
     <script src="https://kit.fontawesome.com/c90803ff49.js" crossorigin="anonymous"></script>
   </head>
   <body id="top">
+    <?php
+        require_once 'vendor/autoload.php';
+        
+        // Load the information for this property from the database, and place it into a dwelling object
+        $hydrator = new NMF\DwellingHydrator(new PDO('mysql:host=db; dbname=NakedMoleFlats', 'root', 'password'));
+        $dwelling = $hydrator->loadSingleDwelling();
+    ?>
     <header>
         <div class="headerContent">
-            <img src="src/images/nakedMoleFlatsLogo.png" alt="Naked Mole Flats Logo">
+            <a href="index.php"><img src="src/images/nakedMoleFlatsLogo.png" alt="Naked Mole Flats Logo"></a>
             <div class="headerText">
                 <h1>NAKED MOLE FLATS</h1>
                 <h2>PROPERTIES OF DISTINCTION</h2>
@@ -42,12 +43,14 @@
         </div>
         <div class="headerBaseBar"></div>
     </header>
-    <section class="allDwellingsContainer">
-        <?php
-            $hydrator = new DwellingHydrator(new PDO('mysql:host=db; dbname=NakedMoleFlats', 'root', 'password'));
-            echo DisplayDwellings::displayAllDwellings($hydrator->loadAllDwellings());
-        ?>
-    </section>
+    <?php
+        require_once('vendor/autoload.php');
+
+        use NMF\DisplayDwellings;
+        use NMF\DwellingHydrator;
+        $hydrator = new DwellingHydrator(new PDO('mysql:host=db; dbname=NakedMoleFlats', 'root', 'password'));
+        echo DisplayDwellings::displayDwelling($hydrator->loadSingleDwelling());
+    ?>
     <footer>
         <div class="footerText">©Copyright Naked Mole Rats 2020</div>
         <div class="toTop">
@@ -56,4 +59,3 @@
         </div>
     </footer>
   </body>
-</html>

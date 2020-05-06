@@ -33,7 +33,7 @@ class DwellingHydrator
      * takes database connection and joins data from tables to return one dwelling object
      * @return array of single dwelling object
      */
-    public function loadSingleDwelling(): array {
+    public function loadSingleDwelling(): object {
         $query = $this->db->prepare('SELECT `dwellings`.`dwellingId`, `dwellings`.`agentRef`, `dwellings`.`address1`, `dwellings`.`address2`, `dwellings`.`town`, `dwellings`.`postcode`, `dwellings`.`description`, `dwellings`.`bedrooms`, `dwellings`.`price`, `dwellings`.`image`, `types`.`type`, `statuses`.`status`                      
                                     FROM ((`dwellings` 
                                     INNER JOIN `types` ON `dwellings`.`typeId` = `types`.`typeId`) 
@@ -43,6 +43,6 @@ class DwellingHydrator
         $query->bindParam(':dwellingId', $_GET['dwellingId']);
 
         $query->execute();
-        return $query->fetchAll(\PDO::FETCH_CLASS, 'NMF\Dwelling');
+        return $query->fetchAll(\PDO::FETCH_CLASS, 'NMF\Dwelling')[0];
     }
 }

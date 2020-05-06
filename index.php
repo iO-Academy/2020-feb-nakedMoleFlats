@@ -51,7 +51,7 @@
     <footer>
         <div class="footerText">©Copyright Naked Mole Rats 2020</div>
         <div class="toTop">
-            <!-- class name is for font awesome icon -->
+            <?php //classes on this element are for the fontawesome icon font ?>
             <a href="#top"><i class="fas fa-angle-double-up"></i></a>
         </div>
     </footer>

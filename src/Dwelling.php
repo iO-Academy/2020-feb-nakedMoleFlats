@@ -96,7 +96,7 @@ class Dwelling
      */
     public function getPrice(): string
     {
-        return $this->price;
+        return number_format($this->price);
     }
 
     /**

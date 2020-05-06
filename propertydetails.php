@@ -26,6 +26,13 @@
     <script src="https://kit.fontawesome.com/c90803ff49.js" crossorigin="anonymous"></script>
   </head>
   <body id="top">
+    <?php
+        require_once 'vendor/autoload.php';
+        
+        // Load the information for this property from the database, and place it into a dwelling object
+        $hydrator = new NMF\DwellingHydrator(new PDO('mysql:host=db; dbname=NakedMoleFlats', 'root', 'password'));
+        $dwelling = $hydrator->loadSingleDwelling();
+    ?>
     <header>
         <div class="headerContent">
             <a href="index.php"><img src="src/images/nakedMoleFlatsLogo.png" alt="Naked Mole Flats Logo"></a>
@@ -37,23 +44,59 @@
         <div class="headerBaseBar"></div>
     </header>
     <main class="propertyDetailsContainer">
-        <img class="propertyDetailsImage mobileImage" src="src/images/testpic.jpeg">
+        <img class="propertyDetailsImage mobileImage" src="
+        <?php
+        // Display the property's image, or a placeholder image if none has been provided
+            if ($dwelling->getImage()) {
+                echo 'https://dev.maydenacademy.co.uk/resources/property-feed/images/' . $dwelling->getImage();
+            } else {
+                echo 'src/images/testpic.jpeg';
+            }
+        ?>">
         <div class="propertyDetailsText">
-        <div class="price">£1000000</div>
+        <div class="price">£
+            <?php 
+            // retrieve price information from the dwelling object
+            echo $dwelling->getPrice(); 
+            ?>
+        </div>
         <hr>
-        <div class="dwellingAddress info">Mayden Academy, 1 Widcombe Crescent, Bath</div>
-        <div class="dwellingPostcode info">BA2 6AH</div>
-        <div class="dwellingStatus info">For Sale</div>
-        <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 5 Bedrooms</div>
+        <div class="dwellingAddress info">
+            <?php 
+            // retrieve address information from the dwelling object
+            echo $dwelling->getAddress1() . ', ' . $dwelling->getAddress2() . ', ' . $dwelling->getTown() 
+            ?>
+        </div>
+        <div class="dwellingPostcode info">
+            <?php 
+            // retrieve post code from the dwelling object
+            echo $dwelling->getPostcode() 
+            ?>
+        </div>
+        <div class="dwellingStatus info">Property <?php echo $dwelling->getStatus() ?></div>
+        <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> <?php echo $dwelling->getBedrooms(); ?> Bedrooms</div>
         <hr>
-        <img class="propertyDetailsImage desktopImage" src="src/images/testpic.jpeg">
+        <img class="propertyDetailsImage desktopImage" src="
+        <?php
+            // retrieve an image from the database, or a placeholder if none was provided
+            if ($dwelling->getImage()) {
+                echo 'https://dev.maydenacademy.co.uk/resources/property-feed/images/' . $dwelling->getImage();
+            } else {
+                echo 'src/images/testpic.jpeg';
+            }
+        ?>">
         <div class="descriptionHeader info">Description:</div>
-        <div class="dwellingDescription info">This is where the property's description would go</div>
+        <div class="dwellingDescription info">
+            <?php 
+            // retrieve the dwelling's description from the dwelling object
+            echo $dwelling->getDescription(); 
+            ?>
+        </div>
     </main>
     <footer>
         <div class="footerText">©Copyright Naked Mole Rats 2020</div>
         <div class="toTop">
-            <!-- class name is for font awesome icon -->
+            <?php //classes on this element are for the fontawesome icon font ?>
             <a href="#top"><i class="fas fa-angle-double-up"></i></a>
         </div>
     </footer>

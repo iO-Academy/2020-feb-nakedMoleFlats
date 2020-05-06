@@ -11,7 +11,6 @@ class DwellingHydrator{
     public function __construct(\PDO $db)
     {
         $this->db = $db;
-        $db->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_OBJ);
     }
     /**
      * takes database connection and joins data from tables into single object
@@ -23,7 +22,7 @@ class DwellingHydrator{
                                     INNER JOIN `statuses` ON `dwellings`.`statusId` = `statuses`.`statusId`);'
                                     );
         $query->execute();
-        return $query->fetchAll();
+        return $query->fetchAll(\PDO::FETCH_CLASS, 'NMF\Dwelling');
     }
     /**
      * takes database connection and joins data from tables to return one dwelling object

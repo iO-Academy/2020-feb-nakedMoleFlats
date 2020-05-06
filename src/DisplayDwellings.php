@@ -26,7 +26,7 @@ class DisplayDwellings
             }
             $result .= '<div class="dwellingContainer">'    
             . '<div class="dwellingImageContainer">'
-                    . '<img class="dwellingMainImage" src="' . $dwelling->getImage() . '">'
+                    . '<img class="dwellingMainImage" src="https://dev.maydenacademy.co.uk/resources/property-feed/images/' . $dwelling->getImage() . '">'
                     . $statusBox
             . '</div>'
             . '<div class="dwellingInfo">'
@@ -35,7 +35,7 @@ class DisplayDwellings
                 . '<div class="dwellingAddress info">' . $dwelling->getAddress1() . ', ' . $dwelling->getAddress2() . ', ' . $dwelling->getTown() . '</div>'
                 . '<div class="dwellingPostcode" info>' . $dwelling->getPostcode() . '</div>'
                 . '<div class="dwellingStatus info">' . $dwelling->getStatus() . '</div>'
-                . '<div class="dwellingBedrooms info"><i class="fas fa-bed"></i>' . $dwelling->getBedrooms() . ' bedrooms</div>'
+                . '<div class="dwellingBedrooms info"><i class="fas fa-bed"></i>' . ' ' . $dwelling->getBedrooms() . ' bedrooms</div>'
             . '</div>'
         . '</div>';
         }

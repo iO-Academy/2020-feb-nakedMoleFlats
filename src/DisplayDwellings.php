@@ -54,8 +54,8 @@ class DisplayDwellings
                 . '<div class="dwellingStatus info">' . $dwelling->getStatus() . '</div>'
                 . '<div class="dwellingBedrooms info"><i class="fas fa-bed"></i>' . ' ' . $dwelling->getBedrooms() . ' bedrooms</div>'
                 . '</div>'
-                . '<form action="">'
-                . '<button type="submit" value="$dwelling->'.$dwelling->getDwellingId().'">View Property</button>'
+                . '<form action="propertydetails.php">'
+                . '<button type="submit" value='.$dwelling->getDwellingId().'>View Property</button>'
                 . '</form>'
                 . '</div>';
         }

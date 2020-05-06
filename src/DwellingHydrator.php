@@ -37,8 +37,10 @@ class DwellingHydrator
                                     FROM ((`dwellings` 
                                     INNER JOIN `types` ON `dwellings`.`typeId` = `types`.`typeId`) 
                                     INNER JOIN `statuses` ON `dwellings`.`statusId` = `statuses`.`statusId`)
-                                    WHERE `dwellings`.`dwellingId` = "$_GET["id"]"'
+                                    WHERE `dwellings`.`dwellingId` = :dwellingId'
                                     );
+        $query->bindParam(':dwellingId', $_GET['dwellingId']);
+
         $query->execute();
         return $query->fetchAll(\PDO::FETCH_CLASS, 'NMF\Dwelling');
     }

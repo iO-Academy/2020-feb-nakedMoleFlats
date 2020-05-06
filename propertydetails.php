@@ -38,6 +38,16 @@
     </header>
     <main class="propertyDetailsContainer">
         <img class="propertyDetailsImage" src="src/images/testpic.jpeg">
+        <div class="propertyDetailsText">
+        <div class="price">£1000000</div>
+        <hr>
+        <div class="dwellingAddress info">Mayden Academy, 1 Widcombe Crescent, Bath</div>
+        <div class="dwellingPostcode info">BA2 6AH</div>
+        <div class="dwellingStatus info">For Sale</div>
+        <div class="dwellingBedrooms info"><i class="fas fa-bed"></i> 5 Bedrooms</div>
+        <hr>
+        <div class="descriptionHeader info">Description:</div>
+        <div class="dwellingDescription info">This is where the property's description would go</div>
     </main>
     <footer>
         <div class="footerText">©Copyright Naked Mole Rats 2020</div>

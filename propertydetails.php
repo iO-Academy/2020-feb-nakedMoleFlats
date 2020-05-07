@@ -26,16 +26,6 @@
     <script src="https://kit.fontawesome.com/c90803ff49.js" crossorigin="anonymous"></script>
   </head>
   <body id="top">
-<<<<<<< HEAD
-=======
-    <?php
-        require_once 'vendor/autoload.php';
-        
-        // Load the information for this property from the database, and place it into a dwelling object
-        $hydrator = new NMF\DwellingHydrator(new PDO('mysql:host=db; dbname=NakedMoleFlats', 'root', 'password'));
-        $dwelling = $hydrator->loadSingleDwelling();
-    ?>
->>>>>>> 20c5953112c3452218c207c7793648bede960753
     <header>
         <div class="headerContent">
             <a href="index.php"><img src="src/images/nakedMoleFlatsLogo.png" alt="Naked Mole Flats Logo"></a>
@@ -47,11 +37,7 @@
         <div class="headerBaseBar"></div>
     </header>
     <?php
-<<<<<<< HEAD
         require_once 'vendor/autoload.php';
-=======
-        require_once('vendor/autoload.php');
->>>>>>> 20c5953112c3452218c207c7793648bede960753
 
         use NMF\DisplayDwellings;
         use NMF\DwellingHydrator;
